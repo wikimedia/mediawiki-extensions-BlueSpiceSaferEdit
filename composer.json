@@ -1,0 +1,24 @@
+{
+	"name": "mediawiki/blue-spice-safer-edit",
+	"type": "mediawiki-extension",
+	"description": "Intermediate saving of wiki edits",
+	"license": "GPL-3.0",
+	"require": {
+		"composer/installers": "~1.0"
+	},
+        "require-dev": {
+                "jakub-onderka/php-parallel-lint": "0.9.2",
+                "jakub-onderka/php-console-highlighter": "0.3.2"
+        },
+        "scripts": {
+                "test": [
+                        "parallel-lint . --exclude vendor --exclude node_modules"
+                ]
+	},
+	"autoload" : {
+		"files": [ "SaferEdit.class.php" ],
+		"psr-4": {
+			"BS\\SaferEdit\\" : "src"
+		}
+	}
+}
