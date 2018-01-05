@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"bs-saferedit-desc": "Salvamento intermediário de edições wiki",
@@ -13,6 +14,7 @@
 	"bs-saferedit-someone-editing": "A página está sendo editada",
 	"bs-saferedit-pref-interval": "Intervalo da versão de recuperação:",
 	"bs-saferedit-pref-shownameofeditinguser": "Mostrar o nome do editor atual",
+	"bs-saferedit-pref-warnonleave": "Avisar-me quando eu deixar uma janela de edição sem ter salvo as alterações",
 	"bs-saferedit-pref-usese": "Ativar edição segura",
 	"bs-saferedit-statebartopsaferedit": "Edição segura",
 	"bs-saferedit-statebartopsafereditediting": "Edição segura - alguém está editando",
