@@ -2,7 +2,7 @@
 	"name": "mediawiki/blue-spice-safer-edit",
 	"type": "mediawiki-extension",
 	"description": "Intermediate saving of wiki edits",
-	"license": "GPL-3.0",
+	"license": "GPL-3.0-only",
 	"require": {
 		"composer/installers": "~1.0"
 	},
