@@ -22,8 +22,7 @@
 	},
 	"ResourceModules": {
 		"ext.bluespice.saferedit.general": {
-			"scripts": "bluespice.SaferEdit.general.js",
-			"position": "bottom"
+			"scripts": "bluespice.SaferEdit.general.js"
 		},
 		"ext.bluespice.saferedit.editmode": {
 			"scripts": "bluespice.SaferEdit.editmode.js",
