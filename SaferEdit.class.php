@@ -94,7 +94,7 @@ class SaferEdit extends BsExtensionMW {
 			$wgExtNewIndexes[] = array( 'bs_saferedit', 'se_page_namespace', $sDir . 'SaferEdit.patch.se_page_namespace.index.sql' );
 
 		} elseif( $wgDBtype == 'sqlite' ) {
-			$sDir = __DIR__.DS.'db'.DS.'mysql'.DS;
+			$sDir = __DIR__ . '/db/mysql/';
 			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.sql' );
 		} elseif( $wgDBtype == 'postgres' ) {
 			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.pg.sql' );
