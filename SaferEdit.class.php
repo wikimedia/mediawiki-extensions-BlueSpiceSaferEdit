@@ -42,9 +42,6 @@ class SaferEdit extends BsExtensionMW {
 	 * Initialization of SaferEdit extension
 	 */
 	protected function initExt() {
-		BsConfig::registerVar( 'MW::SaferEdit::Interval', 10, BsConfig::LEVEL_PUBLIC|BsConfig::TYPE_INT|BsConfig::RENDER_AS_JAVASCRIPT, 'bs-saferedit-pref-interval', 'int' );
-		BsConfig::registerVar( 'MW::SaferEdit::ShowNameOfEditingUser', true, BsConfig::LEVEL_PUBLIC|BsConfig::TYPE_BOOL|BsConfig::RENDER_AS_JAVASCRIPT, 'bs-saferedit-pref-shownameofeditinguser', 'toggle' );
-		BsConfig::registerVar( 'MW::SaferEdit::WarnOnLeave', true, BsConfig::LEVEL_USER|BsConfig::TYPE_BOOL|BsConfig::RENDER_AS_JAVASCRIPT, 'bs-saferedit-pref-warnonleave', 'toggle' );
 
 		$this->setHook( 'PageContentSaveComplete', 'clearSaferEdit' );
 		$this->setHook( 'EditPage::showEditForm:initial', 'setEditSection' );
@@ -94,7 +91,7 @@ class SaferEdit extends BsExtensionMW {
 			$wgExtNewIndexes[] = array( 'bs_saferedit', 'se_page_namespace', $sDir . 'SaferEdit.patch.se_page_namespace.index.sql' );
 
 		} elseif( $wgDBtype == 'sqlite' ) {
-			$sDir = __DIR__ . '/db/mysql/';
+			$sDir = __DIR__.'/db/mysql/';
 			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.sql' );
 		} elseif( $wgDBtype == 'postgres' ) {
 			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.pg.sql' );
@@ -155,11 +152,13 @@ class SaferEdit extends BsExtensionMW {
 			return true;
 		}
 
+		$config = \BlueSpice\Services::getInstance()->getConfigFactory()
+			->makeConfig( 'bsg' );
 		foreach ( $aIntermediateEdits as $oEdit ) {
 			//Please do not edit this agian! This is well calculated!
 			//DO NOT WRITE RANDOM NUMBERS IN HERE
-			$iInterval = BsConfig::get( 'MW::SaferEdit::Interval' )
-				+ BsConfig::get( 'MW::PingInterval' )
+			$iInterval = $config->get( 'SaferEditInterval' )
+				+ $config->get( 'PingInterval' )
 				+ 1; //+1 secound response time is enought
 			$iTime = wfTimestamp( TS_MW, time() - $iInterval );
 			if ( $oEdit->se_user_name != $oUser->getName() && $oEdit->se_timestamp > $iTime ) {
@@ -293,7 +292,9 @@ class SaferEdit extends BsExtensionMW {
 
 		$oSaferEditView->setKey( 'SaferEditSomeoneEditing' );
 		$oSaferEditView->setIconSrc( $wgScriptPath.'/extensions/BlueSpiceExtensions/SaferEdit/resources/images/bs-infobar-editing-orange.png' );
-		if ( BsConfig::get( 'MW::SaferEdit::ShowNameOfEditingUser' ) ) {
+		$config = \BlueSpice\Services::getInstance()->getConfigFactory()
+			->makeConfig( 'bsg' );
+		if ( $config->get( 'SaferEditShowNameOfEditingUser' ) ) {
 			$oSaferEditView->setIconAlt( wfMessage( 'bs-saferedit-user-editing', $sUserName )->text() );
 			$oSaferEditView->setText( wfMessage( 'bs-saferedit-user-editing', $sUserName )->text() );
 		} else {
@@ -334,11 +335,13 @@ class SaferEdit extends BsExtensionMW {
 
 				$aSingleResult['someoneEditingView'] = $aSingleResult['safereditView'] = '';
 
+				$config = \BlueSpice\Services::getInstance()->getConfigFactory()
+					->makeConfig( 'bsg' );
 				foreach ( $aIntermediateEdits as $oEdit ) {
 					//Please do not edit this agian! This is well calculated!
 					//DO NOT WRITE RANDOM NUMBERS IN HERE
-					$iInterval = BsConfig::get( 'MW::SaferEdit::Interval' )
-						+ BsConfig::get( 'MW::PingInterval' )
+					$iInterval = $config->get( 'SaferEditInterval' )
+						+ $config->get( 'PingInterval' )
 						+ 1; //+1 secound response time is enought
 					$iDate = wfTimestamp( TS_MW, time() - $iInterval );
 					if ( $oEdit->se_user_name != $oUser->getName() && $oEdit->se_timestamp > $iDate ) {

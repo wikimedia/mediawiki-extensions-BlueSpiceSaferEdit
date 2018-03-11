@@ -19,7 +19,7 @@ BsSaferEditEditMode = {
 	 * Time between two intermediate saves
 	 * @var integer time in seconds
 	 */
-	interval: mw.config.get( 'bsSaferEditInterval' ) * 1000,
+	interval: mw.config.get( 'bsgSaferEditInterval' ) * 1000,
 	/**
 	 * Pointer to javascript timeout callback, needed to cancel timeout when changes are saved
 	 * @var pointer javascript timeout callback
@@ -197,7 +197,7 @@ BsSaferEditEditMode = {
 
 mw.loader.using( 'ext.bluespice', function() {
 	BsSaferEditEditMode.init();
-	if ( mw.config.get( 'bsSaferEditWarnOnLeave' ) ) {
+	if ( mw.user.options.get( 'bs-saferedit-pref-warnonleave' ) ) {
 		window.onbeforeunload = function ( e ) {
 			var e = e || window.event;
 			var bReturn = BsSaferEditEditMode.checkSaved();

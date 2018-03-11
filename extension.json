@@ -6,16 +6,27 @@
 	"author": [ "Markus Glaser ", "Tobias Weichart" ],
 	"descriptionmsg": "bs-saferedit-desc",
 	"type": "bluespice",
-	"bsgExtensions": {
-		"BlueSpiceSaferEdit": {
-			"className": "SaferEdit",
-			"extPath": "/BlueSpiceSaferEdit"
+	"attributes": {
+		"BlueSpiceFoundation": {
+			"Extensions": {
+				"BlueSpiceSaferEdit": {
+					"className": "SaferEdit",
+					"extPath": "/BlueSpiceSaferEdit",
+					"configDefinitions": {
+						"SaferEditInterval": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\Interval::getInstance",
+						"SaferEditShowNameOfEditingUser": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\ShowNameOfEditingUser::getInstance"
+					}
+				}
+			}
 		}
 	},
 	"MessagesDirs": {
 		"BlueSpiceSaferEdit": [
 			"i18n"
 		]
+	},
+	"AutoloadNamespaces": {
+		"BlueSpice\\SaferEdit\\" : "src/"
 	},
 	"AutoloadClasses": {
 		"SaferEdit": "SaferEdit.class.php"
@@ -45,9 +56,24 @@
 		"localBasePath": "resources",
 		"remoteExtPath": "BlueSpiceSaferEdit/resources"
 	},
+	"config_prefix": "bsg",
+	"config": {
+		"SaferEditInterval": {
+			"value": 10,
+			"descriptionmsg": "bs-saferedit-pref-interval"
+		},
+		"SaferEditShowNameOfEditingUser": {
+			"value": true,
+			"descriptionmsg": "bs-saferedit-pref-shownameofeditinguser"
+		}
+	},
+	"DefaultUserOptions": {
+		"bs-saferedit-pref-warnonleave": true
+	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": "SaferEdit::getSchemaUpdates"
+		"LoadExtensionSchemaUpdates": "SaferEdit::getSchemaUpdates",
+		"GetPreferences": "\\BlueSpice\\SaferEdit\\Hook\\GetPreferences\\WarnOnLeave::callback"
 	},
 	"load_composer_autoloader": true,
-	"manifest_version": 1
+	"manifest_version": 2
 }
