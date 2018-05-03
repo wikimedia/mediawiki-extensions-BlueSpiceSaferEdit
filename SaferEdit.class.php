@@ -45,7 +45,6 @@ class SaferEdit extends BsExtensionMW {
 
 		$this->setHook( 'PageContentSaveComplete', 'clearSaferEdit' );
 		$this->setHook( 'EditPage::showEditForm:initial', 'setEditSection' );
-		$this->setHook( 'BSStateBarAddSortTopVars', 'onStatebarAddSortTopVars' );
 		$this->setHook( 'BSStateBarBeforeTopViewAdd', 'onStateBarBeforeTopViewAdd' );
 		$this->setHook( 'BeforePageDisplay' );
 		$this->setHook( 'BsAdapterAjaxPingResult' );
@@ -126,17 +125,6 @@ class SaferEdit extends BsExtensionMW {
 	 */
 	public function clearSaferEdit( $article, $user, $content, $summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision ) {
 		$this->doClearSaferEdit( $user->getName(), $article->getTitle()->getDbKey(), $article->getTitle()->getNamespace() );
-		return true;
-	}
-
-	/**
-	 * Hook-Handler for Hook 'BSStatebarAddSortTopVars'
-	 * @param array $aSortTopVars
-	 * @return boolean Always true to keep hook running
-	 */
-	public function onStatebarAddSortTopVars( &$aSortTopVars ) {
-		$aSortTopVars['statebartopsaferedit'] = wfMessage( 'bs-saferedit-statebartopsaferedit' )->plain();
-		$aSortTopVars['statebartopsafereditediting'] = wfMessage( 'bs-saferedit-statebartopsafereditediting' )->plain();
 		return true;
 	}
 
