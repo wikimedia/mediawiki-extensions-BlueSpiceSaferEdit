@@ -16,8 +16,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "Name des aktuellen Bearbeiters anzeigen",
 	"bs-saferedit-pref-warnonleave": "Warnung bei ungespeicherten Inhalten",
 	"bs-saferedit-pref-usese": "Sicheres Bearbeiten aktivieren",
-	"bs-saferedit-statebartopsaferedit": "Sicheres Bearbeiten",
-	"bs-saferedit-statebartopsafereditediting": "Sicheres Bearbeiten - In Bearbeitung",
 	"bs-saferedit-lastsavedversion": "Sicherungsversion vom $1 - $2",
 	"bs-saferedit-unsavedchanges": "Es gibt noch ungespeicherte Änderungen.",
 	"bs-saferedit-othersectiontitle": "Sicherung in einem anderen Seitenabschnitt.",

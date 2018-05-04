@@ -15,8 +15,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "Mostrar o nome do editor actual",
 	"bs-saferedit-pref-warnonleave": "Avisádeme cando deixe unha páxina de edición cos cambios sen gardar",
 	"bs-saferedit-pref-usese": "Activar edición máis segura",
-	"bs-saferedit-statebartopsaferedit": "Edición máis segura",
-	"bs-saferedit-statebartopsafereditediting": "Edición máis segura - alguén está editando",
 	"bs-saferedit-lastsavedversion": "A última versión gardada é do $1 ás $2.",
 	"bs-saferedit-unsavedchanges": "Hai cambios sen gardar.",
 	"bs-saferedit-othersectiontitle": "Sección a restaurar",

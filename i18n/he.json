@@ -15,8 +15,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "הצגת שם העורך הנוכחי",
 	"bs-saferedit-pref-warnonleave": "הצגת אזהרה בעת עזיבת דף עריכה עם שינויים שטרם נשמרו",
 	"bs-saferedit-pref-usese": "הפעלת עריכה בטוחה",
-	"bs-saferedit-statebartopsaferedit": "עריכה בטוחה",
-	"bs-saferedit-statebartopsafereditediting": "עריכה בטוחה – מישהו עורך",
 	"bs-saferedit-lastsavedversion": "גרסה שמונה אחרונה מ־$2, $1.",
 	"bs-saferedit-unsavedchanges": "ישנם שינויים שלא נשמרו.",
 	"bs-saferedit-othersectiontitle": "פסקה לשחזור",

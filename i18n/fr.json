@@ -16,8 +16,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "Afficher le nom de l’éditeur actuel",
 	"bs-saferedit-pref-warnonleave": "M’avertir quand je quitte une page avec des modifications non enregistrées",
 	"bs-saferedit-pref-usese": "Activer l’édition plus sûre",
-	"bs-saferedit-statebartopsaferedit": "Édition plus sûre",
-	"bs-saferedit-statebartopsafereditediting": "Édition plus sûre — quelqu’un est en cours de modification",
 	"bs-saferedit-lastsavedversion": "Dernière version enregistrée le $1 — $2.",
 	"bs-saferedit-unsavedchanges": "Il y a des modifications non enregistrées.",
 	"bs-saferedit-othersectiontitle": "Section à restaurer",

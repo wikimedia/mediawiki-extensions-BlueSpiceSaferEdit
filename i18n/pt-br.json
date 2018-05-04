@@ -16,8 +16,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "Mostrar o nome do editor atual",
 	"bs-saferedit-pref-warnonleave": "Avisar-me quando eu deixar uma janela de edição sem ter salvo as alterações",
 	"bs-saferedit-pref-usese": "Ativar edição segura",
-	"bs-saferedit-statebartopsaferedit": "Edição segura",
-	"bs-saferedit-statebartopsafereditediting": "Edição segura - alguém está editando",
 	"bs-saferedit-lastsavedversion": "Última versão salva de $1 - $2.",
 	"bs-saferedit-unsavedchanges": "Há mudanças não salvas.",
 	"bs-saferedit-othersectiontitle": "Seção para restaurar",

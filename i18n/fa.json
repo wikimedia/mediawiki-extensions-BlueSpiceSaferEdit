@@ -17,8 +17,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "نمایش نام ویراستار کنونی",
 	"bs-saferedit-pref-warnonleave": "هنگامی که من صفحه ویرایش را با تغییرات ذخیره‌نشده ترک می‌کردم آگاه کن",
 	"bs-saferedit-pref-usese": "فعال کردن ویرایش امن‌تر",
-	"bs-saferedit-statebartopsaferedit": "ویرایش امن‌تر",
-	"bs-saferedit-statebartopsafereditediting": "ویرایش امن‌تر - کسی در حال ویرایش است",
 	"bs-saferedit-lastsavedversion": "آخرین نسخه ذخیره‌شده از $1 - $2.",
 	"bs-saferedit-unsavedchanges": "تغییرات ذخیره‌نشده‌ای وجود دارد.",
 	"bs-saferedit-othersectiontitle": "بخش بازگرداندن",

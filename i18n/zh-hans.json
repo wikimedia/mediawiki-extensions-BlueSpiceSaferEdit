@@ -15,8 +15,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "显示当前编辑者的名字",
 	"bs-saferedit-pref-warnonleave": "当我未保存更改离开编辑页面时警告我",
 	"bs-saferedit-pref-usese": "激活安全编辑",
-	"bs-saferedit-statebartopsaferedit": "安全编辑",
-	"bs-saferedit-statebartopsafereditediting": "安全编辑——有人编辑",
 	"bs-saferedit-lastsavedversion": "最近一次保存版本从$1~$2。",
 	"bs-saferedit-unsavedchanges": "有未保存的更改。",
 	"bs-saferedit-othersectiontitle": "部分还原",

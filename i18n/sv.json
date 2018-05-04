@@ -18,8 +18,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "Visa namnet för aktuell redigerare",
 	"bs-saferedit-pref-warnonleave": "Varna mig om jag lämnar en redigeringssida med osparade ändringar",
 	"bs-saferedit-pref-usese": "Aktivera säkrare redigering",
-	"bs-saferedit-statebartopsaferedit": "Säkrare redigering",
-	"bs-saferedit-statebartopsafereditediting": "Säkrare redigering - någon redigerar",
 	"bs-saferedit-lastsavedversion": "Senast sparad version från $1 - $2.",
 	"bs-saferedit-unsavedchanges": "Det finns osparade ändringar.",
 	"bs-saferedit-othersectiontitle": "Avsnitt att återställa",

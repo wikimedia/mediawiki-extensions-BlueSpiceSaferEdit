@@ -16,8 +16,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "Показать имя текущего редактора",
 	"bs-saferedit-pref-warnonleave": "Предупреждать, когда я покидаю страницу с несохранёнными изменениями",
 	"bs-saferedit-pref-usese": "Активировать более безопасное редактирование",
-	"bs-saferedit-statebartopsaferedit": "Более безопасное редактирование",
-	"bs-saferedit-statebartopsafereditediting": "Более безопасное редактирование — кто-то редактирует",
 	"bs-saferedit-lastsavedversion": "Последняя сохранённая версия от $2 $1.",
 	"bs-saferedit-unsavedchanges": "Имеются несохранённые изменения.",
 	"bs-saferedit-othersectiontitle": "Раздел для восстановления",

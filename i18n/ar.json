@@ -15,8 +15,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "إظهار اسم المحرر الحالي",
 	"bs-saferedit-pref-warnonleave": "حذرني عند مغادرة صفحة تعديل بتغييرات غير محفوظة",
 	"bs-saferedit-pref-usese": "تنشيط التحرير الأكثر أمانا",
-	"bs-saferedit-statebartopsaferedit": "تحرير أكثر أمانا",
-	"bs-saferedit-statebartopsafereditediting": "تحرير أكثر أمانا - شخص ما يحرر",
 	"bs-saferedit-lastsavedversion": "آخر إصدار تم حفظه من $1 - $2.",
 	"bs-saferedit-unsavedchanges": "هناك تغييرات غير محفوظة.",
 	"bs-saferedit-othersectiontitle": "قسم لاستعادته",

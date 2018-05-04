@@ -15,8 +15,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "Прикажувај го името на тековниот уредник",
 	"bs-saferedit-pref-warnonleave": "Предупреди ме кога напуштам страница со незачувани промени",
 	"bs-saferedit-pref-usese": "Вклучи побезбедно уредување",
-	"bs-saferedit-statebartopsaferedit": "Побезбедно уредување",
-	"bs-saferedit-statebartopsafereditediting": "Побезбедно уредување — некој уредува",
 	"bs-saferedit-lastsavedversion": "Последна зачувана верзија од $1 — $2.",
 	"bs-saferedit-unsavedchanges": "Имате незачувани промени.",
 	"bs-saferedit-othersectiontitle": "Дел за возобнова",
