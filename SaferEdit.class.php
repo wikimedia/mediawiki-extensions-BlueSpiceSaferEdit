@@ -279,7 +279,7 @@ class SaferEdit extends BsExtensionMW {
 		$oSaferEditView = new ViewStateBarTopElement();
 
 		$oSaferEditView->setKey( 'SaferEditSomeoneEditing' );
-		$oSaferEditView->setIconSrc( $wgScriptPath.'/extensions/BlueSpiceExtensions/SaferEdit/resources/images/bs-infobar-editing-orange.png' );
+		$oSaferEditView->setIconSrc( $wgScriptPath.'/extensions/BlueSpiceSaferEdit/resources/images/bs-infobar-editing-orange.png' );
 		$config = \BlueSpice\Services::getInstance()->getConfigFactory()
 			->makeConfig( 'bsg' );
 		if ( $config->get( 'SaferEditShowNameOfEditingUser' ) ) {
