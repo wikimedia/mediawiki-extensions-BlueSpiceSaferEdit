@@ -1,8 +1,11 @@
 {
-	"name": "mediawiki/blue-spice-safer-edit",
+	"name": "bluespice/saferedit",
 	"type": "mediawiki-extension",
 	"description": "Intermediate saving of wiki edits",
 	"license": "GPL-3.0-only",
+	"extra": {
+		"installer-name": "BlueSpiceSaferEdit"
+	},
 	"require": {
 		"composer/installers": "~1.0"
 	},
@@ -19,11 +22,5 @@
 		"fix": [
 			"minus-x fix ."
 		]
-	},
-	"autoload" : {
-		"files": [ "SaferEdit.class.php" ],
-		"psr-4": {
-			"BS\\SaferEdit\\" : "src"
-		}
 	}
 }
