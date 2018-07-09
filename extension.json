@@ -32,7 +32,8 @@
 		]
 	},
 	"AutoloadNamespaces": {
-		"BlueSpice\\SaferEdit\\" : "src/"
+		"BlueSpice\\SaferEdit\\" : "src/",
+		"BlueSpice\\SaferEdit\\\\Tests" : "tests/phpunit/"
 	},
 	"AutoloadClasses": {
 		"SaferEdit": "SaferEdit.class.php"
@@ -78,7 +79,12 @@
 	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "SaferEdit::getSchemaUpdates",
-		"GetPreferences": "\\BlueSpice\\SaferEdit\\Hook\\GetPreferences\\WarnOnLeave::callback"
+		"GetPreferences": "\\BlueSpice\\SaferEdit\\Hook\\GetPreferences\\WarnOnLeave::callback",
+		"BeforePageDisplay": "\\BlueSpice\\SaferEdit\\Hook\\BeforePageDisplay\\AddModules::callback",
+		"BsAdapterAjaxPingResult": [
+			"\\BlueSpice\\SaferEdit\\Hook\\BsAdapterAjaxPingResult\\HandleSaferEditIsSomeoneEditing::callback",
+			"\\BlueSpice\\SaferEdit\\Hook\\BsAdapterAjaxPingResult\\HandleSaferEditSave::callback"
+		]
 	},
 	"load_composer_autoloader": true,
 	"manifest_version": 2

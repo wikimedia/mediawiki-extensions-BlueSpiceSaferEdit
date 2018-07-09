@@ -45,34 +45,6 @@ class SaferEdit extends BsExtensionMW {
 
 		$this->setHook( 'PageContentSaveComplete', 'clearSaferEdit' );
 		$this->setHook( 'EditPage::showEditForm:initial', 'setEditSection' );
-		$this->setHook( 'BSStateBarBeforeTopViewAdd', 'onStateBarBeforeTopViewAdd' );
-		$this->setHook( 'BeforePageDisplay' );
-		$this->setHook( 'BsAdapterAjaxPingResult' );
-	}
-
-	/**
-	 * Hook-Handler for MediaWiki 'BeforePageDisplay' hook. Sets context if needed.
-	 * @param OutputPage $oOutputPage
-	 * @param Skin $oSkin
-	 * @return bool
-	 */
-	public function onBeforePageDisplay( &$oOutputPage, &$oSkin ) {
-		$sAction = $oSkin->getRequest()->getVal( 'action', 'view' );
-		if ( !in_array( $sAction, array ( 'edit', 'submit', 'view', ) ) ) {
-			return true;
-		}
-
-		$oOutputPage->addModules('ext.bluespice.saferedit.general');
-
-		if( !in_array( $sAction, array ( 'edit', 'submit' ) ) ) {
-			return true;
-		}
-		if ( !$oSkin->getTitle()->userCan( 'edit' ) ) {
-			return true;
-		}
-
-		$oOutputPage->addModules('ext.bluespice.saferedit.editmode');
-		return true;
 	}
 
 	/**
@@ -94,16 +66,8 @@ class SaferEdit extends BsExtensionMW {
 			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.sql' );
 		} elseif( $wgDBtype == 'postgres' ) {
 			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.pg.sql' );
-			/*
-			$wgExtNewIndexes[] = array( 'bs_saferedit', 'se_page_title',     $sDir . 'SaferEdit.patch.se_page_title.index.pg.sql' );
-			$wgExtNewIndexes[] = array( 'bs_saferedit', 'se_page_namespace', $sDir . 'SaferEdit.patch.se_page_namespace.index.pg.sql' );
-			*/
 		} elseif( $wgDBtype == 'oracle' ) {
 			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.oci.sql' );
-			/*
-			$wgExtNewIndexes[] = array( 'bs_saferedit', 'se_page_title',     $sDir . 'SaferEdit.patch.se_page_title.index.oci.sql' );
-			$wgExtNewIndexes[] = array( 'bs_saferedit', 'se_page_namespace', $sDir . 'SaferEdit.patch.se_page_namespace.index.oci.sql' );
-			*/
 		}
 		$updater->modifyExtensionField( 'bs_saferedit', 'se_text', $sDir . 'SaferEdit.patch.se_text.sql' );
 		return true;
@@ -126,68 +90,6 @@ class SaferEdit extends BsExtensionMW {
 	public function clearSaferEdit( $article, $user, $content, $summary, $minoredit, $watchthis, $sectionanchor, $flags, $revision ) {
 		$this->doClearSaferEdit( $user->getName(), $article->getTitle()->getDbKey(), $article->getTitle()->getNamespace() );
 		return true;
-	}
-
-	/**
-	 * Hook-Handler for Hook 'BSStateBarBeforeTopViewAdd'
-	 * @param StateBar $oStateBar
-	 * @param array $aTopViews
-	 * @return boolean Always true to keep hook running
-	 */
-	public function onStateBarBeforeTopViewAdd( $oStateBar, &$aTopViews, $oUser, $oTitle ) {
-		$aIntermediateEdits = $this->getIntermediateEditsForCurrentTitle( $oTitle );
-		if ( empty( $aIntermediateEdits ) ) {
-			return true;
-		}
-
-		$config = \BlueSpice\Services::getInstance()->getConfigFactory()
-			->makeConfig( 'bsg' );
-		foreach ( $aIntermediateEdits as $oEdit ) {
-			//Please do not edit this agian! This is well calculated!
-			//DO NOT WRITE RANDOM NUMBERS IN HERE
-			$iInterval = $config->get( 'SaferEditInterval' )
-				+ $config->get( 'PingInterval' )
-				+ 1; //+1 secound response time is enought
-			$iTime = wfTimestamp( TS_MW, time() - $iInterval );
-			if ( $oEdit->se_user_name != $oUser->getName() && $oEdit->se_timestamp > $iTime ) {
-				$aTopViews['statebartopsafereditediting'] = $this->makeStateBarTopSomeoneEditing( $oEdit->se_user_name );
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * Loads intermediate edits
-	 * @param Title $oTitle
-	 * @return array
-	 */
-	public function getIntermediateEditsForCurrentTitle( $oTitle ) {
-		if ( is_array( $this->aIntermediateEditsForCurrentTitle ) ) {
-			return $this->aIntermediateEditsForCurrentTitle;
-		}
-
-		if ( is_null( $oTitle ) || !$oTitle->exists() ) {
-			return $this->aIntermediateEditsForCurrentTitle = array();
-		}
-
-		$dbr = wfGetDB( DB_REPLICA );
-
-		$rRes = $dbr->select(
-			'bs_saferedit',
-			'*',
-			array(
-				"se_page_title" => $oTitle->getDBkey(),
-				"se_page_namespace" => $oTitle->getNamespace(),
-			),
-			__METHOD__,
-			array( "ORDER BY" => "se_id DESC" )
-		);
-
-		while ( $row = $dbr->fetchObject( $rRes ) ) {
-			$this->aIntermediateEditsForCurrentTitle[] = $row;
-		}
-
-		return $this->aIntermediateEditsForCurrentTitle;
 	}
 
 	/**
@@ -265,97 +167,6 @@ class SaferEdit extends BsExtensionMW {
 		);
 
 		Title::newFromText( $sPageTitle, $iPageNamespace )->invalidateCache();
-		return true;
-	}
-
-	// TODO MRG (04.05.11 01:09): Consider case where more than one editors are editing the page
-	/**
-	 * Renders a note that someone is editing a page to the statebar
-	 * @param string $sUserName name of the user that is editing the page
-	 * @return ViewStateBarTopElement View that is to be displayed in StateBar Top
-	 */
-	public function makeStateBarTopSomeoneEditing( $sUserName ) {
-		global $wgScriptPath;
-		$oSaferEditView = new ViewStateBarTopElement();
-
-		$oSaferEditView->setKey( 'SaferEditSomeoneEditing' );
-		$oSaferEditView->setIconSrc( $wgScriptPath.'/extensions/BlueSpiceSaferEdit/resources/images/bs-infobar-editing-orange.png' );
-		$config = \BlueSpice\Services::getInstance()->getConfigFactory()
-			->makeConfig( 'bsg' );
-		if ( $config->get( 'SaferEditShowNameOfEditingUser' ) ) {
-			$oSaferEditView->setIconAlt( wfMessage( 'bs-saferedit-user-editing', $sUserName )->text() );
-			$oSaferEditView->setText( wfMessage( 'bs-saferedit-user-editing', $sUserName )->text() );
-		} else {
-			$oSaferEditView->setIconAlt( wfMessage( 'bs-saferedit-someone-editing' )->plain() );
-			$oSaferEditView->setText( wfMessage( 'bs-saferedit-someone-editing' )->plain() );
-		}
-
-		return $oSaferEditView;
-	}
-
-	/**
-	 * Hook-Handler for BS hook BsAdapterAjaxPingResult
-	 * @global User $wgUser
-	 * @param string $sRef
-	 * @param array $aData
-	 * @param integer $iArticleId
-	 * @param array $aSingleResult
-	 * @return boolean
-	 */
-	public function onBsAdapterAjaxPingResult( $sRef, $aData, $iArticleId, $sTitle, $iNamespace, $iRevision, &$aSingleResult ) {
-		if ( !in_array( $sRef, array ( 'SaferEditIsSomeoneEditing', 'SaferEditSave' ) ) ) {
-			return true;
-		}
-
-		$oTitle = Title::newFromText( $sTitle, $iNamespace );
-		if ( is_null( $oTitle ) || !$oTitle->userCan( 'read' ) ) {
-			return true;
-		}
-		$oUser = $this->getUser();
-
-		switch( $sRef ) {
-			case 'SaferEditIsSomeoneEditing':
-				$aSingleResult['success'] = true;
-				$aIntermediateEdits = $this->getIntermediateEditsForCurrentTitle( $oTitle );
-				if ( empty( $aIntermediateEdits ) ) {
-					return true;
-				}
-
-				$aSingleResult['someoneEditingView'] = $aSingleResult['safereditView'] = '';
-
-				$config = \BlueSpice\Services::getInstance()->getConfigFactory()
-					->makeConfig( 'bsg' );
-				foreach ( $aIntermediateEdits as $oEdit ) {
-					//Please do not edit this agian! This is well calculated!
-					//DO NOT WRITE RANDOM NUMBERS IN HERE
-					$iInterval = $config->get( 'SaferEditInterval' )
-						+ $config->get( 'PingInterval' )
-						+ 1; //+1 secound response time is enought
-					$iDate = wfTimestamp( TS_MW, time() - $iInterval );
-					if ( $oEdit->se_user_name != $oUser->getName() && $oEdit->se_timestamp > $iDate ) {
-						$aSingleResult['someoneEditingView'] = $this->makeStateBarTopSomeoneEditing( $oEdit->se_user_name )->execute();
-					}
-				}
-
-				break;
-			case 'SaferEditSave':
-				if( !isset($aData[0]['bUnsavedChanges']) ) {
-					return true;
-				}
-				if( $aData[0]['bUnsavedChanges'] !== true ) {
-					return true;
-				}
-
-				$iSection = empty( $aData[0]['section'] ) ? -1 : $aData[0]['section'];
-
-				$aSingleResult['success'] = $this->saveUserEditing(
-					$oUser->getName(), $oTitle,
-					$iSection
-				);
-
-				break;
-		}
-
 		return true;
 	}
 }

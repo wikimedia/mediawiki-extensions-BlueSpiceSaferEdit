@@ -28,15 +28,71 @@ BsSaferEdit = {
 	init: function() {
 		this.interval = mw.config.get( 'bsgSaferEditInterval' ) * 1000;
 
-		if ( this.interval < 1000 || $( '#bs-statebar' ).length < 1 ) {
+		if ( this.interval < 1000 ) {
 			return;
 		}
-		BSPing.registerListener( 'SaferEditIsSomeoneEditing', BsSaferEdit.interval, [], BsSaferEdit.someoneIsEditingListener );
+
+		BSPing.registerListener(
+			'SaferEditIsSomeoneEditing',
+			BsSaferEdit.interval,
+			[],
+			BsSaferEdit.someoneIsEditingListener
+		);
+
+		BSPing.registerListener(
+			'SaferEditSave',
+			BsSaferEdit.interval,
+			[],
+			BsSaferEdit.saferEditSave
+		);
+	},
+
+	saferEditSave: function(result, Listener) {
+		var data = [];
+
+		if( BsSaferEdit._pageIsInEditMode() ) {
+			data = [{
+				bUnsavedChanges: true
+			}];
+		}
+
+		BSPing.registerListener(
+			'SaferEditSave',
+			0,
+			data,
+			BsSaferEdit.saferEditSave
+		);
+	},
+
+	_pageIsInEditMode: function() {
+		var editModeQueries = [
+			'action=edit',
+			'action=formedit',
+			'veaction=edit', 'veaction=editsource'
+		];
+
+		var queryString = window.location.search;
+
+		for( var i = 0; i < editModeQueries.length; i++ ) {
+			var editModeQuery = editModeQueries[i];
+			if( queryString.indexOf( editModeQuery ) !== -1 ) {
+				return true;
+			}
+		}
+
+		return false;
 	},
 
 	someoneIsEditingListener: function(result, Listener) {
 		if(result.success !== true) return;
 
+		BsSaferEdit._updateLegacyUI( result );
+		BsSaferEdit._updateUI( result );
+
+		BSPing.registerListener( 'SaferEditIsSomeoneEditing', BsSaferEdit.interval, [], BsSaferEdit.someoneIsEditingListener );
+	},
+
+	_updateLegacyUI: function( result ) {
 		if( $('#sb-SaferEditSomeoneEditing').length > 0 ) {
 			$('#sb-SaferEditSomeoneEditing').replaceWith(result.someoneEditingView);
 		} else {
@@ -48,8 +104,31 @@ BsSaferEdit = {
 		} else {
 			$('#bs-statebar').find('#bs-statebar-view').before(result.safereditView);
 		}
+	},
 
-		BSPing.registerListener( 'SaferEditIsSomeoneEditing', BsSaferEdit.interval, [], BsSaferEdit.someoneIsEditingListener );
+	lastSomeoneEditingView: '',
+
+	_updateUI: function( result ) {
+		//Because of BSPing listener registration logic `result.success` is
+		//always `true`, even if there is no view in it
+		if( result.someoneEditingView === '' ) {
+			return;
+		}
+
+		//TODO: Should collision control be handled completely by
+		//`bs.alerts.add`?
+		if( BsSaferEdit.lastSomeoneEditingView === result.someoneEditingView ) {
+			return;
+		}
+
+		var $elem = $('<div>').append( result.someoneEditingView );
+		BsSaferEdit.lastSomeoneEditingView = result.someoneEditingView;
+
+		bs.alerts.add(
+			'bs-saferedit-warning',
+			$elem,
+			bs.alerts.TYPE_WARNING
+		);
 	}
 };
 
