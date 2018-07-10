@@ -109,15 +109,8 @@ BsSaferEdit = {
 	lastSomeoneEditingView: '',
 
 	_updateUI: function( result ) {
-		//Because of BSPing listener registration logic `result.success` is
-		//always `true`, even if there is no view in it
 		if( result.someoneEditingView === '' ) {
-			return;
-		}
-
-		//TODO: Should collision control be handled completely by
-		//`bs.alerts.add`?
-		if( BsSaferEdit.lastSomeoneEditingView === result.someoneEditingView ) {
+			bs.alerts.remove( 'bs-saferedit-warning' );
 			return;
 		}
 

@@ -23,6 +23,9 @@
 						"SaferEditShowNameOfEditingUser": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\ShowNameOfEditingUser::getInstance"
 					}
 				}
+			},
+			"AlertProviderRegistry": {
+				"bs-saferedit-warning": "\\BlueSpice\\SaferEdit\\AlertProvider\\EditWarning::factory"
 			}
 		}
 	},
