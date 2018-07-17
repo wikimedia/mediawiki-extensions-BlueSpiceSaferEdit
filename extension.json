@@ -35,8 +35,7 @@
 		]
 	},
 	"AutoloadNamespaces": {
-		"BlueSpice\\SaferEdit\\" : "src/",
-		"BlueSpice\\SaferEdit\\Tests" : "tests/phpunit/"
+		"BlueSpice\\SaferEdit\\" : "src/"
 	},
 	"AutoloadClasses": {
 		"SaferEdit": "SaferEdit.class.php"
