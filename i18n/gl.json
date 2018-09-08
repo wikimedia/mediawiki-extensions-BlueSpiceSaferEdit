@@ -12,7 +12,7 @@
 	"bs-saferedit-user-editing": "$1 está {{GENDER:$1|editando}} a páxina",
 	"bs-saferedit-someone-editing": "A páxina está a ser editada",
 	"bs-saferedit-pref-interval": "Intervalo da versión de recuperación:",
-	"bs-saferedit-pref-shownameofeditinguser": "Mostrar o nome do editor actual",
+	"bs-saferedit-pref-shownameofeditinguser": "Amosar o nome do editor actual",
 	"bs-saferedit-pref-warnonleave": "Avisádeme cando deixe unha páxina de edición cos cambios sen gardar",
 	"bs-saferedit-pref-usese": "Activar edición máis segura",
 	"bs-saferedit-lastsavedversion": "A última versión gardada é do $1 ás $2.",
