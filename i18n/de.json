@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Stephan Muggli <muggli@hallowelt.biz>",
-			"Metalhead64"
+			"Metalhead64",
+			"Hwboehm"
 		]
 	},
 	"bs-saferedit-desc": "Bearbeitungen an Wikiseiten werden automatisch zwischengespeichert",
@@ -21,5 +22,5 @@
 	"bs-saferedit-othersectiontitle": "Sicherung in einem anderen Seitenabschnitt.",
 	"bs-saferedit-othersectiontext1": "Es gibt eine Sicherung eines Seiten-Abschnitts.",
 	"bs-saferedit-othersectiontext2": "Sicherungsversion wurde erstellt am $1 - $2",
-	"bs-saferedit-othersectiontext3": "Möchtest Du zum Seitenabschnitt wechseln?"
+	"bs-saferedit-othersectiontext3": "Möchtest du zum Seitenabschnitt wechseln?"
 }
