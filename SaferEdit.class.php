@@ -48,32 +48,6 @@ class SaferEdit extends BsExtensionMW {
 	}
 
 	/**
-	 * Sets up required database tables
-	 * @param DatabaseUpdater $updater Provided by MediaWikis update.php
-	 * @return boolean Always true to keep the hook running
-	 */
-	public static function getSchemaUpdates( $updater ) {
-		global $wgDBtype, $wgExtNewTables, $wgExtNewIndexes;
-		$sDir = __DIR__ . '/' . 'db' . '/' . $wgDBtype . '/';
-
-		if( $wgDBtype == 'mysql') {
-			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.sql' );
-			$wgExtNewIndexes[] = array( 'bs_saferedit', 'se_page_title',     $sDir . 'SaferEdit.patch.se_page_title.index.sql' );
-			$wgExtNewIndexes[] = array( 'bs_saferedit', 'se_page_namespace', $sDir . 'SaferEdit.patch.se_page_namespace.index.sql' );
-
-		} elseif( $wgDBtype == 'sqlite' ) {
-			$sDir = __DIR__.'/db/mysql/';
-			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.sql' );
-		} elseif( $wgDBtype == 'postgres' ) {
-			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.pg.sql' );
-		} elseif( $wgDBtype == 'oracle' ) {
-			$wgExtNewTables[]  = array( 'bs_saferedit', $sDir . 'SaferEdit.oci.sql' );
-		}
-		$updater->modifyExtensionField( 'bs_saferedit', 'se_text', $sDir . 'SaferEdit.patch.se_text.sql' );
-		return true;
-	}
-
-	/**
 	 * Clear all previously saved intermediate edits when article is saved
 	 * Called by PageContentSaveComplete hook
 	 * @param Article $article The article that is created.

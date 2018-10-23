@@ -80,7 +80,7 @@
 		"bs-saferedit-pref-warnonleave": true
 	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": "SaferEdit::getSchemaUpdates",
+		"LoadExtensionSchemaUpdates": "\\BlueSpice\\SaferEdit\\Hook\\LoadExtensionSchemaUpdates\\AddSaferEditTable::callback",
 		"GetPreferences": "\\BlueSpice\\SaferEdit\\Hook\\GetPreferences\\WarnOnLeave::callback",
 		"BeforePageDisplay": "\\BlueSpice\\SaferEdit\\Hook\\BeforePageDisplay\\AddModules::callback",
 		"BsAdapterAjaxPingResult": [
