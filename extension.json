@@ -27,6 +27,11 @@
 			"AlertProviderRegistry": {
 				"bs-saferedit-warning": "\\BlueSpice\\SaferEdit\\AlertProvider\\EditWarning::factory"
 			}
+		},
+		"BlueSpicePrivacy": {
+			"Handlers": [
+				"\\BlueSpice\\SaferEdit\\Privacy\\Handler"
+			]
 		}
 	},
 	"MessagesDirs": {
