@@ -31,6 +31,9 @@ BsSaferEdit = {
 		if ( this.interval < 1000 ) {
 			return;
 		}
+		if( mw.config.get( 'wgNamespaceNumber', 0 ) < 0 ) {
+			return;
+		}
 
 		BSPing.registerListener(
 			'SaferEditIsSomeoneEditing',
