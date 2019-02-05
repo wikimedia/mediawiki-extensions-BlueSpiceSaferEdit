@@ -7,8 +7,6 @@
 	"bs-saferedit-desc": "Меѓувремено зачувување на уредувањата",
 	"prefs-saferedit": "Побезбедно уредување",
 	"bs-saferedit-restore": "Возобнови",
-	"bs-saferedit-safer-edit-tooltip": "Имате претходна зачувана верзија на располагање.",
-	"bs-saferedit-safer-edit-topbar": "Возобнова",
 	"bs-saferedit-user-editing": "$1 {{GENDER:$1|ја уредување}} страницата",
 	"bs-saferedit-someone-editing": "Страницата се уредува",
 	"bs-saferedit-pref-interval": "На колку време да се зачувува верзија:",

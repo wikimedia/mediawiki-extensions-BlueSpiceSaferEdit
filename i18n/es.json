@@ -10,8 +10,6 @@
 	"bs-saferedit-desc": "Intermediario de guardado de ediciones de la wiki",
 	"prefs-saferedit": "Edición más segura",
 	"bs-saferedit-restore": "Restaurar",
-	"bs-saferedit-safer-edit-tooltip": "Está disponible una versión de recuperación.",
-	"bs-saferedit-safer-edit-topbar": "Recuperación",
 	"bs-saferedit-user-editing": "$1 está {{GENDER:$1|editando}} la página",
 	"bs-saferedit-someone-editing": "La página se está editando",
 	"bs-saferedit-pref-interval": "Intervalo de la versión de recuperación:",

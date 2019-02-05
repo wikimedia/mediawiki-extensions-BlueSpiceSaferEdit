@@ -6,8 +6,6 @@
 	},
 	"prefs-saferedit": "Saugesnis redagavimas",
 	"bs-saferedit-restore": "Atkurti",
-	"bs-saferedit-safer-edit-tooltip": "Atkūrimo versija prieinama.",
-	"bs-saferedit-safer-edit-topbar": "Atkūrimas",
 	"bs-saferedit-user-editing": "$1 {{GENDER:$1|redaguoja}} puslapį",
 	"bs-saferedit-someone-editing": "Puslapis yra redaguojamas",
 	"bs-saferedit-pref-interval": "Atkūrimo versijos intervalas:",

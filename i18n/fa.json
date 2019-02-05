@@ -9,8 +9,6 @@
 	"bs-saferedit-desc": "ذخیره بینابینی ویرایش‌ها در ویکی",
 	"prefs-saferedit": "ویرایش امن‌تر",
 	"bs-saferedit-restore": "بازیابی",
-	"bs-saferedit-safer-edit-tooltip": "یک نسخه بازیابی در دسترس است.",
-	"bs-saferedit-safer-edit-topbar": "بازیابی",
 	"bs-saferedit-user-editing": "$1 {{GENDER:$1|در حال ویرایش}} صفحه است",
 	"bs-saferedit-someone-editing": "این صفحه در حال ویرایش‌شدن است",
 	"bs-saferedit-pref-interval": "فاصله نسخه بازیابی:",

@@ -7,8 +7,6 @@
 	"bs-saferedit-desc": "wiki编辑的媒介保存",
 	"prefs-saferedit": "安全编辑",
 	"bs-saferedit-restore": "还原",
-	"bs-saferedit-safer-edit-tooltip": "恢复版本可用",
-	"bs-saferedit-safer-edit-topbar": "恢复",
 	"bs-saferedit-user-editing": "$1{{GENDER:$1|正在}}编辑页面",
 	"bs-saferedit-someone-editing": "此页面正在编辑",
 	"bs-saferedit-pref-interval": "恢复版本间隔：",

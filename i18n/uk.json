@@ -8,8 +8,6 @@
 	"bs-saferedit-desc": "Проміжне збереження редагувань вікі",
 	"prefs-saferedit": "Безпечніше редагування",
 	"bs-saferedit-restore": "Відновити",
-	"bs-saferedit-safer-edit-tooltip": "Доступна відновлена версія.",
-	"bs-saferedit-safer-edit-topbar": "Відновлення",
 	"bs-saferedit-user-editing": "$1 {{GENDER:$1|редагує}} сторінку",
 	"bs-saferedit-someone-editing": "Сторінка редагується",
 	"bs-saferedit-pref-interval": "Інтервал відновлених версій:",
