@@ -26,75 +26,15 @@ BsSaferEditEditMode = {
 	 */
 	timeout: false,
 	/**
-	 * Store for older text before safer edit saving in order to compare it to current text to see if any changes were made
-	 * @var string text at time of page call or last safer edit saving
-	 */
-	oldText: '',
-	/**
-	 * Store for initial text before saving in order to compare it to current text to see if any changes were made
-	 * @var string text at time of page call or last saving
-	 */
-	origText: '',
-	/**
-	 * Indicates if text was changed client side since the last safer edit saving
-	 * @var bool true if text was changed
-	 */
-	isDirty: false,
-	/**
 	 * Indicates if text was changed client side since the last user saving
 	 * @var bool true if text was changed
 	 */
 	isUnsaved: false,
 	/**
-	 * Indicates if the editform is submitted
-	 * @var bool
-	 */
-	isSubmit: false,
-	/**
 	 * Indicates whether page is in edit mode and saving of texts should be started
 	 * @var bool true if page is in edit mode
 	 */
 	editMode: false,
-	/**
-	 * Window object that stores the SaferEdit dialogue
-	 * @var Ext.Window Instance of a window object
-	 */
-	win: false,
-	/**
-	 * Time of saved version in restore dialogue
-	 * @var string Rendered timestamp, currently age of stored release
-	 */
-	savedTime: '',
-	/**
-	 * Date of saved version in restore dialogue
-	 * @var string Rendered timestamp, currently age of stored release
-	 */
-	savedDate: '',
-	/**
-	 * Rendered HTML of saved version that is displayed in restore dialogue
-	 * @var string Rendered HTML
-	 */
-	savedHTML: '',
-	/**
-	 * Wiki code of saved version that is inserted on OK in restore dialogue
-	 * @var string Wiki code
-	 */
-	savedWikiCode: '',
-	/**
-	 * URL of section edit of page that is used if page is called in edit mode, but a saved part of a section is present
-	 * @var string Redirect url
-	 */
-	redirect: '',
-	/**
-	 * Boolean if a backup is created
-	 * @var bool backup created
-	 */
-	bBackupCreated: false,
-	/**
-	 * Boolean if oldtext should be reseted
-	 * @var bool backup oldtext should be reseted
-	 */
-	bResetOldText: true,
 	/**
 	 * Initiates saving of edited text in certain intervals
 	 */
@@ -106,7 +46,7 @@ BsSaferEditEditMode = {
 						section: mw.config.get( 'bsSaferEditEditSection' ),
 						bUnsavedChanges: BsSaferEditEditMode.hasUnsavedChanges( )
 			}],
-				BsSaferEditEditMode.startSaving
+			BsSaferEditEditMode.startSaving
 		);
 	},
 	/**
@@ -120,56 +60,20 @@ BsSaferEditEditMode = {
 			BsSaferEditEditMode.editMode = false;
 		}
 
+		BsSaferEditEditMode.origText = BsSaferEditEditMode.getText();
 		if ( !BsSaferEditEditMode.editMode ) {
 			return;
 		}
-		BsSaferEditEditMode.origText = BsSaferEditEditMode.getText();
 		BsSaferEditEditMode.startSaving();
 	},
-	checkSaved: function () {
-		if ( !BsSaferEditEditMode.isSubmit && BsSaferEditEditMode.hasUnsavedChanges( ) ) {
-			if ( /chrome/.test( navigator.userAgent.toLowerCase() ) ) { //chrome compatibility
-				return mw.message( 'bs-saferedit-unsavedchanges' ).plain();
-			}
-			if ( window.event ) {
-				window.event.returnValue = mw.message( 'bs-saferedit-unsavedchanges' ).plain();
-			} else {
-				return mw.message( 'bs-saferedit-unsavedchanges' ).plain();
-			}
-		}
-		return null;
-	},
 	hasUnsavedChanges: function ( mode ) {
-		if ( typeof ( VisualEditor ) !== "undefined" && VisualEditor._editorMode === "tiny" ) {
-			if (!tinyMCE.activeEditor ) {
-				return null;
-			}
-			BsSaferEditEditMode.isUnsaved = tinyMCE.activeEditor.isDirty();
-			return BsSaferEditEditMode.isUnsaved;
-		}
-		var text = BsSaferEditEditMode.getText( );
-		if ( text.trim() != BsSaferEditEditMode.origText.trim() ) {
-			BsSaferEditEditMode.isUnsaved = true;
-			return true;
-		} else {
-			BsSaferEditEditMode.isUnsaved = false;
-			return false;
-		}
+		BsSaferEditEditMode.isUnsaved = BsSaferEditEditMode.editMode;
+		return true;
 	},
 	onSavedText: function ( name ) {
-		BsSaferEditEditMode.origText = BsSaferEditEditMode.getText( 'VisualEditor' );
 		BsSaferEditEditMode.isUnsaved = false;
 	},
 
-	onToggleEditor: function ( name, data ) {
-		if ( BsSaferEditEditMode.isUnsaved )
-			return;
-
-		BsSaferEditEditMode.origText = BsSaferEditEditMode.getText( data );
-	},
-	onVisualEditorInstanceShow: function () {
-		BsSaferEditEditMode.origText = BsSaferEditEditMode.getText( "MW" );
-	},
 	onBeforeToggleEditor: function ( name, data ) {
 		BsSaferEditEditMode.hasUnsavedChanges( data );
 	},
@@ -197,24 +101,7 @@ BsSaferEditEditMode = {
 
 mw.loader.using( 'ext.bluespice', function() {
 	BsSaferEditEditMode.init();
-	if ( mw.user.options.get( 'bs-saferedit-pref-warnonleave' ) ) {
-		window.onbeforeunload = function ( e ) {
-			var e = e || window.event;
-			var bReturn = BsSaferEditEditMode.checkSaved();
-			if ( bReturn === null ) {
-				return;
-			}
-			if ( e ) {
-				e.returnValue = bReturn;
-			}
-			return bReturn;
-		};
-		$( document ).on( 'submit', '#editform', function () {
-			BsSaferEditEditMode.isSubmit = true;
-		} );
-	}
 } );
 
 $( document ).on( 'BSVisualEditorBeforeToggleEditor', BsSaferEditEditMode.onBeforeToggleEditor );
 $( document ).on( 'BSVisualEditorSavedText', BsSaferEditEditMode.onSavedText );
-$( document ).on( 'BSVisualEditorToggleEditor', BsSaferEditEditMode.onToggleEditor );

@@ -2,7 +2,7 @@
 /**
  * SaferEdit extension for BlueSpice
  *
- * Intermediate saving of wiki edits.
+ * Provides warnings if other users are editing the page
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

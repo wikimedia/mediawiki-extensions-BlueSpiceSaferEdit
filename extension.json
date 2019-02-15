@@ -51,16 +51,6 @@
 		},
 		"ext.bluespice.saferedit.editmode": {
 			"scripts": "bluespice.SaferEdit.editmode.js",
-			"messages": [
-				"bs-saferedit-lastsavedversion",
-				"bs-saferedit-restore",
-				"bs-extjs-cancel",
-				"bs-saferedit-unsavedchanges",
-				"bs-saferedit-othersectiontitle",
-				"bs-saferedit-othersectiontext1",
-				"bs-saferedit-othersectiontext2",
-				"bs-saferedit-othersectiontext3"
-			],
 			"dependencies": [
 				"ext.bluespice.saferedit.general"
 			]
@@ -81,12 +71,8 @@
 			"descriptionmsg": "bs-saferedit-pref-shownameofeditinguser"
 		}
 	},
-	"DefaultUserOptions": {
-		"bs-saferedit-pref-warnonleave": true
-	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "\\BlueSpice\\SaferEdit\\Hook\\LoadExtensionSchemaUpdates\\AddSaferEditTable::callback",
-		"GetPreferences": "\\BlueSpice\\SaferEdit\\Hook\\GetPreferences\\WarnOnLeave::callback",
 		"BeforePageDisplay": "\\BlueSpice\\SaferEdit\\Hook\\BeforePageDisplay\\AddModules::callback",
 		"BsAdapterAjaxPingResult": [
 			"\\BlueSpice\\SaferEdit\\Hook\\BsAdapterAjaxPingResult\\HandleSaferEditIsSomeoneEditing::callback",
