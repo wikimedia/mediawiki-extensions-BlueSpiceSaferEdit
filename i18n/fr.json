@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Ltrlg"
+			"Ltrlg",
+			"Pierpao"
 		]
 	},
-	"bs-saferedit-desc": "Enregistrement intermédiaire des modifications du wiki",
+	"bs-saferedit-desc": "Fait avertir si d'autres utilisateurs sont en train de modifier la page",
 	"bs-saferedit-user-editing": "$1 est en train de {{GENDER:$1|modifier}} la page",
 	"bs-saferedit-someone-editing": "La page est en cours de modification",
 	"bs-saferedit-pref-interval": "Intervalle entre les versions de récupération :",
