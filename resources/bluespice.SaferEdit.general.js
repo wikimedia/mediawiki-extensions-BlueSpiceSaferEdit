@@ -23,7 +23,7 @@ BsSaferEdit = {
 	interval: 0,
 
 	/**
-	 * Conducts neccessary preparations of edit form and starts intermediate saving
+	 * Conducts necessary preparations of edit form and starts intermediate saving
 	 */
 	init: function() {
 		this.interval = mw.config.get( 'bsgSaferEditInterval' ) * 1000;

@@ -50,7 +50,7 @@ BsSaferEditEditMode = {
 		);
 	},
 	/**
-	 * Conducts neccessary preparations of edit form and starts intermediate saving
+	 * Conducts necessary preparations of edit form and starts intermediate saving
 	 */
 	init: function() {
 		if ( mw.config.get( "wgAction" ) == "edit" || mw.config.get( "wgAction" ) == "submit" ) {
