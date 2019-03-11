@@ -9,6 +9,6 @@
 	"bs-saferedit-desc": "Fait avertir si d'autres utilisateurs sont en train de modifier la page",
 	"bs-saferedit-user-editing": "$1 est en train de {{GENDER:$1|modifier}} la page",
 	"bs-saferedit-someone-editing": "La page est en cours de modification",
-	"bs-saferedit-pref-interval": "Intervalle entre les versions de récupération :",
+	"bs-saferedit-pref-interval": "Intervalle entre les recherche de modifications concurrentes :",
 	"bs-saferedit-pref-shownameofeditinguser": "Afficher le nom de l’éditeur actuel"
 }
