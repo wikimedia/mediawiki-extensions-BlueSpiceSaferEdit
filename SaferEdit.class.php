@@ -25,7 +25,7 @@
  * @package    BlueSpice_Extensions
  * @subpackage SaferEdit
  * @copyright  Copyright (C) 2016 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v3
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 
@@ -42,7 +42,6 @@ class SaferEdit extends BsExtensionMW {
 	 * Initialization of SaferEdit extension
 	 */
 	protected function initExt() {
-
 		$this->setHook( 'PageContentSaveComplete', 'clearSaferEdit' );
 		$this->setHook( 'EditPage::showEditForm:initial', 'setEditSection' );
 	}
@@ -78,37 +77,38 @@ class SaferEdit extends BsExtensionMW {
 
 	/**
 	 *
-	 * @param string $sText
 	 * @param string $sUsername
 	 * @param Title $oTitle
-	 * @param integer $iSection
-	 * @return boolean
+	 * @param int $iSection
+	 * @return bool
 	 */
 	public static function saveUserEditing( $sUsername, $oTitle, $iSection = -1 ) {
-		if ( BsCore::checkAccessAdmission( 'edit' ) === false ) return true;
+		if ( BsCore::checkAccessAdmission( 'edit' ) === false ) {
+			return true;
+		}
 		$db = wfGetDB( DB_MASTER );
 
 		$sTable = 'bs_saferedit';
-		$aFields = array(
+		$aFields = [
 			"se_timestamp" => wfTimestamp( TS_MW, time() )
-		);
-		$aConditions = array(
+		];
+		$aConditions = [
 			"se_user_name" => $sUsername,
 			"se_page_title" => $oTitle->getDBkey(),
 			"se_page_namespace" => $oTitle->getNamespace(),
 			"se_edit_section" => $iSection,
-		);
-		$aOptions = array( //needed for update reason
+		];
+		$aOptions = [ // needed for update reason
 			'ORDER BY' => 'se_id DESC',
 			'LIMIT' => 1,
-		);
+		];
 
-		if ( $oRow = $db->selectRow( $sTable, array( 'se_id' ), $aConditions, __METHOD__, $aOptions ) ) {
+		if ( $oRow = $db->selectRow( $sTable, [ 'se_id' ], $aConditions, __METHOD__, $aOptions ) ) {
 			$oTitle->invalidateCache();
 			return $db->update(
 				$sTable,
 				$aFields,
-				array( "se_id" => $oRow->se_id )
+				[ "se_id" => $oRow->se_id ]
 			);
 		}
 
@@ -125,7 +125,7 @@ class SaferEdit extends BsExtensionMW {
 	 */
 	protected function doClearSaferEdit( $sUserName, $sPageTitle, $iPageNamespace ) {
 		$oTitle = Title::newFromText( $sPageTitle, $iPageNamespace );
-		if( empty($oTitle) ){
+		if ( empty( $oTitle ) ) {
 			return false;
 		}
 
@@ -133,11 +133,11 @@ class SaferEdit extends BsExtensionMW {
 		$db = wfGetDB( DB_MASTER );
 		$db->delete(
 			'bs_saferedit',
-			array(
+			[
 				"se_user_name" => $sUserName,
 				"se_page_title" => $oTitle->getDBkey(),
 				"se_page_namespace" => $iPageNamespace,
-			)
+			]
 		);
 
 		Title::newFromText( $sPageTitle, $iPageNamespace )->invalidateCache();

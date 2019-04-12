@@ -64,14 +64,14 @@ class EditWarningBuilder {
 	}
 
 	protected function makeMessage() {
-		if( empty( $this->intermediateEditUsername ) ) {
+		if ( empty( $this->intermediateEditUsername ) ) {
 			return;
 		}
 
 		$showName = $this->config->get( 'SaferEditShowNameOfEditingUser' );
 
 		$message = wfMessage( 'bs-saferedit-someone-editing' );
-		if( $showName ) {
+		if ( $showName ) {
 			$message = wfMessage(
 				'bs-saferedit-user-editing',
 				$this->intermediateEditUsername
@@ -96,7 +96,7 @@ class EditWarningBuilder {
 			[ "ORDER BY" => "se_id DESC" ]
 		);
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$this->intermediateEdits[] = $row;
 		}
 	}
@@ -107,11 +107,11 @@ class EditWarningBuilder {
 		$currentUserName = $this->user->getName();
 
 		foreach ( $this->intermediateEdits as $row ) {
-			if( $row->se_user_name === $currentUserName ) {
+			if ( $row->se_user_name === $currentUserName ) {
 				continue;
 			}
 
-			if( $row->se_timestamp < $thresholdTS ) {
+			if ( $row->se_timestamp < $thresholdTS ) {
 				continue;
 			}
 
@@ -124,7 +124,7 @@ class EditWarningBuilder {
 		$saferEditInterval = $this->config->get( 'SaferEditInterval' );
 		$pingInterval = $this->config->get( 'PingInterval' );
 
-		//HINT PW from the ancient times: +1 secound response time is enough
+		// HINT PW from the ancient times: +1 secound response time is enough
 		return $saferEditInterval + $pingInterval + 1;
 	}
 

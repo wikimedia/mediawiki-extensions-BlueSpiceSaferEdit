@@ -21,7 +21,7 @@ class Handler implements IPrivacyHandler {
 		return \Status::newGood();
 	}
 
-	public function delete( \User $userToDelete, \User $deletedUser) {
+	public function delete( \User $userToDelete, \User $deletedUser ) {
 		return $this->anonymize( $userToDelete->getName(), $deletedUser->getName() );
 	}
 

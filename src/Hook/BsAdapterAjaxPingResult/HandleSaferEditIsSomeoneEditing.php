@@ -5,7 +5,6 @@ namespace BlueSpice\SaferEdit\Hook\BsAdapterAjaxPingResult;
 use BlueSpice\Hook\BsAdapterAjaxPingResult;
 use BlueSpice\SaferEdit\EditWarningBuilder;
 use Title;
-use Html;
 
 class HandleSaferEditIsSomeoneEditing extends BsAdapterAjaxPingResult {
 
@@ -16,16 +15,16 @@ class HandleSaferEditIsSomeoneEditing extends BsAdapterAjaxPingResult {
 	protected $title = null;
 
 	protected function skipProcessing() {
-		if( $this->reference !== 'SaferEditIsSomeoneEditing' ) {
+		if ( $this->reference !== 'SaferEditIsSomeoneEditing' ) {
 			return true;
 		}
 
 		$this->title = Title::newFromText( $this->titleText );
-		if( $this->title === null ) {
+		if ( $this->title === null ) {
 			return true;
 		}
 
-		if( !$this->title->exists() ) {
+		if ( !$this->title->exists() ) {
 			return true;
 		}
 
