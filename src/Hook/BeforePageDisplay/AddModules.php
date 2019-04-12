@@ -19,7 +19,7 @@ class AddModules extends BeforePageDisplay {
 	protected function doProcess() {
 		$this->out->addModules( 'ext.bluespice.saferedit.general' );
 
-		if( $this->isEditBodeAndUserCanEdit() ) {
+		if ( $this->isEditBodeAndUserCanEdit() ) {
 			$this->out->addModules( 'ext.bluespice.saferedit.editmode' );
 		}
 
@@ -27,7 +27,7 @@ class AddModules extends BeforePageDisplay {
 	}
 
 	private function isEditBodeAndUserCanEdit() {
-		//By definition of `$this->validActions` it must be 'edit' or 'submit'
+		// By definition of `$this->validActions` it must be 'edit' or 'submit'
 		return $this->currentAction !== 'view'
 				&& $this->skin->getTitle()->userCan( 'edit' );
 	}
