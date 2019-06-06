@@ -16,7 +16,7 @@
 		"BlueSpiceFoundation": {
 			"Extensions": {
 				"BlueSpiceSaferEdit": {
-					"className": "SaferEdit",
+					"className": "\\BlueSpice\\SaferEdit\\Extension",
 					"extPath": "/BlueSpiceSaferEdit",
 					"configDefinitions": {
 						"SaferEditInterval": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\Interval::getInstance",
@@ -32,8 +32,16 @@
 			"Handlers": [
 				"\\BlueSpice\\SaferEdit\\Privacy\\Handler"
 			]
+		},
+		"BlueSpiceSaferEdit": {
+			"EnvironmentCheckers": {
+				"standardEdit": "\\BlueSpice\\SaferEdit\\EnvironmentChecker\\StandardEdit::factory"
+			}
 		}
 	},
+	"ServiceWiringFiles": [
+		"ServiceWiring.php"
+	],
 	"MessagesDirs": {
 		"BlueSpiceSaferEdit": [
 			"i18n"
@@ -42,17 +50,16 @@
 	"AutoloadNamespaces": {
 		"BlueSpice\\SaferEdit\\" : "src/"
 	},
-	"AutoloadClasses": {
-		"SaferEdit": "SaferEdit.class.php"
-	},
 	"ResourceModules": {
-		"ext.bluespice.saferedit.general": {
-			"scripts": "bluespice.SaferEdit.general.js"
-		},
-		"ext.bluespice.saferedit.editmode": {
-			"scripts": "bluespice.SaferEdit.editmode.js",
+		"ext.bluespice.saferedit.init": {
+			"scripts": [
+				"bs.saferEdit.Save.js",
+				"bs.saferEdit.Warning.js",
+				"bs.saferEdit.init.js"
+			],
 			"dependencies": [
-				"ext.bluespice.saferedit.general"
+				"ext.bluespice",
+				"oojs"
 			]
 		}
 	},
@@ -77,7 +84,9 @@
 		"BsAdapterAjaxPingResult": [
 			"\\BlueSpice\\SaferEdit\\Hook\\BsAdapterAjaxPingResult\\HandleSaferEditIsSomeoneEditing::callback",
 			"\\BlueSpice\\SaferEdit\\Hook\\BsAdapterAjaxPingResult\\HandleSaferEditSave::callback"
-		]
+		],
+		"PageContentSaveComplete": "\\BlueSpice\\SaferEdit\\Hook\\PageContentSaveComplete\\ClearSaferEdit::callback",
+		"EditPage::showEditForm:initial": "\\BlueSpice\\SaferEdit\\Hook\\EditPage_showEditForm_initial\\SetEditSection::callback"
 	},
 	"load_composer_autoloader": true,
 	"manifest_version": 2

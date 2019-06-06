@@ -2,8 +2,13 @@
 
 namespace BlueSpice\SaferEdit\ConfigDefinition;
 
-class Interval extends \BlueSpice\ConfigDefinition\IntSetting {
+use BlueSpice\ConfigDefinition\IntSetting;
 
+class Interval extends IntSetting {
+
+	/**
+	 * @inheritDoc
+	 */
 	public function getPaths() {
 		return [
 			static::MAIN_PATH_FEATURE . '/' . static::FEATURE_QUALITY_ASSURANCE . '/BlueSpiceSaferEdit',
@@ -12,10 +17,16 @@ class Interval extends \BlueSpice\ConfigDefinition\IntSetting {
 		];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getLabelMessageKey() {
 		return 'bs-saferedit-pref-interval';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function isRLConfigVar() {
 		return true;
 	}

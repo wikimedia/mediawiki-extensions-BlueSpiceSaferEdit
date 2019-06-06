@@ -2,34 +2,39 @@
 
 namespace BlueSpice\SaferEdit\Hook\BeforePageDisplay;
 
+use BlueSpice\SaferEdit\SaferEditManager;
 use BlueSpice\Hook\BeforePageDisplay;
-use Action;
 
 class AddModules extends BeforePageDisplay {
 
-	protected $currentAction = 'view';
-
-	protected $validActions = [ 'edit', 'submit', 'view' ];
-
-	protected function skipProcessing() {
-		$this->currentAction = Action::getActionName( $this->getContext() );
-		return in_array( $this->currentAction, $this->validActions ) === false;
-	}
+	/**
+	 * @var SaferEditManager
+	 */
+	protected $seManager;
 
 	protected function doProcess() {
-		$this->out->addModules( 'ext.bluespice.saferedit.general' );
+		$this->seManager = $this->getServices()->getService( 'BSSaferEditManager' );
 
-		if ( $this->isEditBodeAndUserCanEdit() ) {
-			$this->out->addModules( 'ext.bluespice.saferedit.editmode' );
+		$isEditMode = $this->isEditMode();
+		$shouldShowWarning = $this->shouldShowWarning();
+		if ( $isEditMode || $shouldShowWarning ) {
+			$this->out->addModules( 'ext.bluespice.saferedit.init' );
+			$this->out->addJsConfigVars( 'bsSaferEditIsEditMode', $isEditMode );
+			$this->out->addJsConfigVars( 'bsSaferEditDisplayWarning', $shouldShowWarning );
 		}
 
 		return true;
 	}
 
-	private function isEditBodeAndUserCanEdit() {
-		// By definition of `$this->validActions` it must be 'edit' or 'submit'
-		return $this->currentAction !== 'view'
-				&& $this->skin->getTitle()->userCan( 'edit' );
+	private function isEditMode() {
+		$result = false;
+		$this->seManager->askEnvironmentalCheckers( 'isEditMode', $result );
+		return $result;
 	}
 
+	private function shouldShowWarning() {
+		$result = false;
+		$this->seManager->askEnvironmentalCheckers( 'shouldShowWarning', $result );
+		return $result;
+	}
 }

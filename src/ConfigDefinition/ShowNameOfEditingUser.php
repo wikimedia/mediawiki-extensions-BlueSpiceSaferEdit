@@ -2,8 +2,13 @@
 
 namespace BlueSpice\SaferEdit\ConfigDefinition;
 
-class ShowNameOfEditingUser extends \BlueSpice\ConfigDefinition\BooleanSetting {
+use BlueSpice\ConfigDefinition\BooleanSetting;
 
+class ShowNameOfEditingUser extends BooleanSetting {
+
+	/**
+	 * @inheritDoc
+	 */
 	public function getPaths() {
 		return [
 			static::MAIN_PATH_FEATURE . '/' . static::FEATURE_QUALITY_ASSURANCE . '/BlueSpiceSaferEdit',
@@ -12,10 +17,16 @@ class ShowNameOfEditingUser extends \BlueSpice\ConfigDefinition\BooleanSetting {
 		];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getLabelMessageKey() {
 		return 'bs-saferedit-pref-shownameofeditinguser';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function isRLConfigVar() {
 		return true;
 	}
