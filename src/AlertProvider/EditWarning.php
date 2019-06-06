@@ -8,6 +8,9 @@ use BlueSpice\SaferEdit\EditWarningBuilder;
 
 class EditWarning extends AlertProviderBase {
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getHTML() {
 		$editWarningBuilder = new EditWarningBuilder(
 			$this->loadBalancer,
@@ -19,6 +22,9 @@ class EditWarning extends AlertProviderBase {
 		return $editWarningBuilder->getMessage();
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getType() {
 		return IAlertProvider::TYPE_WARNING;
 	}
