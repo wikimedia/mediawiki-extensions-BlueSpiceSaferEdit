@@ -3,6 +3,7 @@
 namespace BlueSpice\SaferEdit\Hook\BsAdapterAjaxPingResult;
 
 use BlueSpice\Hook\BsAdapterAjaxPingResult;
+use BlueSpice\SaferEdit\SaferEditManager;
 use Title;
 
 class HandleSaferEditSave extends BsAdapterAjaxPingResult {
@@ -13,8 +14,23 @@ class HandleSaferEditSave extends BsAdapterAjaxPingResult {
 	 */
 	protected $title = null;
 
+	/**
+	 * @var SaferEditManager
+	 */
+	protected $seManager;
+
+	/**
+	 * @inheritDoc
+	 */
+	public function __construct( $context, $config, $reference, $params, $articleId, $titleText, $namespaceIndex, $revisionId, &$singleResults ) {
+		parent::__construct( $context, $config, $reference, $params, $articleId, $titleText, $namespaceIndex, $revisionId, $singleResults );
+
+		$this->title = Title::newFromText( $this->titleText, $this->namespaceIndex );
+		$this->seManager = $this->getServices()->getService( 'BSSaferEditManager' );
+		$this->seManager->askEnvironmentalCheckers( 'getEditedTitle', $this->title );
+	}
+
 	protected function skipProcessing() {
-		$this->title = Title::newFromText( $this->titleText );
 		if ( $this->title === null ) {
 			return true;
 		}
@@ -34,11 +50,13 @@ class HandleSaferEditSave extends BsAdapterAjaxPingResult {
 			? -1
 			: $this->params[0]['section'];
 
-		$this->singleResults['success'] = \SaferEdit::saveUserEditing(
-			$this->getContext()->getUser()->getName(),
+		$status = $this->seManager->saveUserEditing(
+			$this->getContext()->getUser(),
 			$this->title,
 			$section
 		);
+
+		$this->singleResults['success'] = $status->isOK();
 
 		return true;
 	}

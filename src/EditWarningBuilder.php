@@ -45,6 +45,12 @@ class EditWarningBuilder {
 	 */
 	protected $message = '';
 
+	/**
+	 * @param LoadBalancer $loadBalancer
+	 * @param Config $config
+	 * @param User $user
+	 * @param Title $title
+	 */
 	public function __construct( $loadBalancer, $config, $user, $title ) {
 		$this->loadBalancer = $loadBalancer;
 		$this->config = $config;

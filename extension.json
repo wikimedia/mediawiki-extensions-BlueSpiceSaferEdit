@@ -16,7 +16,7 @@
 		"BlueSpiceFoundation": {
 			"Extensions": {
 				"BlueSpiceSaferEdit": {
-					"className": "SaferEdit",
+					"className": "\\BlueSpice\\SaferEdit\\Extension",
 					"extPath": "/BlueSpiceSaferEdit",
 					"configDefinitions": {
 						"SaferEditInterval": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\Interval::getInstance",
@@ -32,8 +32,16 @@
 			"Handlers": [
 				"\\BlueSpice\\SaferEdit\\Privacy\\Handler"
 			]
+		},
+		"BlueSpiceSaferEdit": {
+			"EnvironmentCheckers": {
+				"standardEdit": "\\BlueSpice\\SaferEdit\\EnvironmentChecker\\StandardEdit::factory"
+			}
 		}
 	},
+	"ServiceWiringFiles": [
+		"ServiceWiring.php"
+	],
 	"MessagesDirs": {
 		"BlueSpiceSaferEdit": [
 			"i18n"
@@ -42,27 +50,16 @@
 	"AutoloadNamespaces": {
 		"BlueSpice\\SaferEdit\\" : "src/"
 	},
-	"AutoloadClasses": {
-		"SaferEdit": "SaferEdit.class.php"
-	},
 	"ResourceModules": {
-		"ext.bluespice.saferedit.general": {
-			"scripts": "bluespice.SaferEdit.general.js"
-		},
-		"ext.bluespice.saferedit.editmode": {
-			"scripts": "bluespice.SaferEdit.editmode.js",
-			"messages": [
-				"bs-saferedit-lastsavedversion",
-				"bs-saferedit-restore",
-				"bs-extjs-cancel",
-				"bs-saferedit-unsavedchanges",
-				"bs-saferedit-othersectiontitle",
-				"bs-saferedit-othersectiontext1",
-				"bs-saferedit-othersectiontext2",
-				"bs-saferedit-othersectiontext3"
+		"ext.bluespice.saferedit.init": {
+			"scripts": [
+				"bs.saferEdit.Save.js",
+				"bs.saferEdit.Warning.js",
+				"bs.saferEdit.init.js"
 			],
 			"dependencies": [
-				"ext.bluespice.saferedit.general"
+				"ext.bluespice",
+				"oojs"
 			]
 		}
 	},
@@ -81,17 +78,15 @@
 			"descriptionmsg": "bs-saferedit-pref-shownameofeditinguser"
 		}
 	},
-	"DefaultUserOptions": {
-		"bs-saferedit-pref-warnonleave": true
-	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "\\BlueSpice\\SaferEdit\\Hook\\LoadExtensionSchemaUpdates\\AddSaferEditTable::callback",
-		"GetPreferences": "\\BlueSpice\\SaferEdit\\Hook\\GetPreferences\\WarnOnLeave::callback",
 		"BeforePageDisplay": "\\BlueSpice\\SaferEdit\\Hook\\BeforePageDisplay\\AddModules::callback",
 		"BsAdapterAjaxPingResult": [
 			"\\BlueSpice\\SaferEdit\\Hook\\BsAdapterAjaxPingResult\\HandleSaferEditIsSomeoneEditing::callback",
 			"\\BlueSpice\\SaferEdit\\Hook\\BsAdapterAjaxPingResult\\HandleSaferEditSave::callback"
-		]
+		],
+		"PageContentSaveComplete": "\\BlueSpice\\SaferEdit\\Hook\\PageContentSaveComplete\\ClearSaferEdit::callback",
+		"EditPage::showEditForm:initial": "\\BlueSpice\\SaferEdit\\Hook\\EditPage_showEditForm_initial\\SetEditSection::callback"
 	},
 	"load_composer_autoloader": true,
 	"manifest_version": 2
