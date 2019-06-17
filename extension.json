@@ -40,7 +40,7 @@
 		}
 	},
 	"ServiceWiringFiles": [
-		"ServiceWiring.php"
+		"includes/ServiceWiring.php"
 	],
 	"MessagesDirs": {
 		"BlueSpiceSaferEdit": [
