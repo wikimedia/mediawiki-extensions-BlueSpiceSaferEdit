@@ -7,11 +7,11 @@ use OutputPage;
 
 class SetEditSection {
 	/**
-	 * @param EditPage &$editPage
+	 * @param EditPage $editPage
 	 * @param OutputPage $output
 	 * @return bool
 	 */
-	public static function callback( &$editPage, $output ) {
+	public static function callback( $editPage, $output ) {
 		$output->addJsConfigVars(
 			'bsSaferEditEditSection',
 			$editPage->getContext()->getRequest()->getVal( 'section', -1 )
