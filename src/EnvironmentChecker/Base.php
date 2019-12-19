@@ -26,6 +26,10 @@ abstract class Base implements IEnvironmentChecker {
 		$this->context = $context;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function userCanEdit() {
 		$title = $this->context->getTitle();
 		$user = $this->context->getUser();
@@ -42,7 +46,15 @@ abstract class Base implements IEnvironmentChecker {
 		return true;
 	}
 
+	/**
+	 *
+	 * @param bool &$result
+	 */
 	abstract public function isEditMode( &$result );
 
+	/**
+	 *
+	 * @param bool &$result
+	 */
 	abstract public function shouldShowWarning( &$result );
 }
