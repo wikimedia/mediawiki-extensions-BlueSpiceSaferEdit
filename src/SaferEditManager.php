@@ -57,12 +57,20 @@ class SaferEditManager {
 			"se_page_namespace" => $title->getNamespace(),
 			"se_edit_section" => $section,
 		];
-		$options = [ // needed for update reason
+		// needed for update reason
+		$options = [
 			'ORDER BY' => 'se_id DESC',
 			'LIMIT' => 1,
 		];
 
-		if ( $row = $this->db->selectRow( $table, [ 'se_id' ], $conditions, __METHOD__, $options ) ) {
+		$row = $this->db->selectRow(
+			$table,
+			[ 'se_id' ],
+			$conditions,
+			__METHOD__,
+			$options
+		);
+		if ( $row ) {
 			$title->invalidateCache();
 			$updateOk = $this->db->update(
 				$table,

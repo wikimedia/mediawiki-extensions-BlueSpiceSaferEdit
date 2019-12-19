@@ -22,8 +22,19 @@ class HandleSaferEditSave extends BsAdapterAjaxPingResult {
 	/**
 	 * @inheritDoc
 	 */
-	public function __construct( $context, $config, $reference, $params, $articleId, $titleText, $namespaceIndex, $revisionId, &$singleResults ) {
-		parent::__construct( $context, $config, $reference, $params, $articleId, $titleText, $namespaceIndex, $revisionId, $singleResults );
+	public function __construct( $context, $config, $reference, $params, $articleId,
+		$titleText, $namespaceIndex, $revisionId, &$singleResults ) {
+		parent::__construct(
+			$context,
+			$config,
+			$reference,
+			$params,
+			$articleId,
+			$titleText,
+			$namespaceIndex,
+			$revisionId,
+			$singleResults
+		);
 
 		$this->title = Title::newFromText( $this->titleText, $this->namespaceIndex );
 		$this->seManager = $this->getServices()->getService( 'BSSaferEditManager' );
