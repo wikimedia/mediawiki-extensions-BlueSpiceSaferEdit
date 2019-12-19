@@ -126,6 +126,10 @@ class EditWarningBuilder {
 		}
 	}
 
+	/**
+	 *
+	 * @return int
+	 */
 	protected function getInterval() {
 		$saferEditInterval = $this->config->get( 'SaferEditInterval' );
 		$pingInterval = $this->config->get( 'PingInterval' );
