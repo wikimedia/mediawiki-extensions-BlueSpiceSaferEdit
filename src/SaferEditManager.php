@@ -3,11 +3,11 @@
 namespace BlueSpice\SaferEdit;
 
 use BlueSpice\ExtensionAttributeBasedRegistry;
-use Wikimedia\Rdbms\IDatabase;
 use IContextSource;
+use Status;
 use Title;
 use User;
-use Status;
+use Wikimedia\Rdbms\IDatabase;
 
 class SaferEditManager {
 	/**

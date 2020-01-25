@@ -2,8 +2,8 @@
 
 namespace BlueSpice\SaferEdit\AlertProvider;
 
-use BlueSpice\IAlertProvider;
 use BlueSpice\AlertProviderBase;
+use BlueSpice\IAlertProvider;
 use BlueSpice\SaferEdit\EditWarningBuilder;
 
 class EditWarning extends AlertProviderBase {

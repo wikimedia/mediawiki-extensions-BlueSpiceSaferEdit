@@ -2,10 +2,10 @@
 
 namespace BlueSpice\SaferEdit;
 
-use Wikimedia\Rdbms\LoadBalancer;
 use Config;
-use User;
 use Title;
+use User;
+use Wikimedia\Rdbms\LoadBalancer;
 
 class EditWarningBuilder {
 

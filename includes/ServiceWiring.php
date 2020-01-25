@@ -1,8 +1,8 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
-use BlueSpice\SaferEdit\SaferEditManager;
 use BlueSpice\ExtensionAttributeBasedRegistry;
+use BlueSpice\SaferEdit\SaferEditManager;
+use MediaWiki\MediaWikiServices;
 
 return [
 	'BSSaferEditManager' => function ( MediaWikiServices $services ) {

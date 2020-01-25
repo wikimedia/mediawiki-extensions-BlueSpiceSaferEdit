@@ -2,8 +2,8 @@
 
 namespace BlueSpice\SaferEdit\Hook\BeforePageDisplay;
 
-use BlueSpice\SaferEdit\SaferEditManager;
 use BlueSpice\Hook\BeforePageDisplay;
+use BlueSpice\SaferEdit\SaferEditManager;
 
 class AddModules extends BeforePageDisplay {
 
