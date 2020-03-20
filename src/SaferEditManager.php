@@ -43,7 +43,10 @@ class SaferEditManager {
 	 * @return Status
 	 */
 	public function saveUserEditing( User $user, Title $title, $section = -1 ) {
-		if ( !$title->userCan( 'edit', $user ) ) {
+		if ( !\MediaWiki\MediaWikiServices::getInstance()
+			->getPermissionManager()
+			->userCan( 'edit', $user, $title )
+		) {
 			return Status::newFatal( "User cannot edit the page" );
 		}
 

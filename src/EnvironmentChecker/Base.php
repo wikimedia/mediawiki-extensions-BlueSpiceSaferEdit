@@ -33,7 +33,10 @@ abstract class Base implements IEnvironmentChecker {
 	protected function userCanEdit() {
 		$title = $this->context->getTitle();
 		$user = $this->context->getUser();
-		if ( $title->userCan( 'edit', $user ) ) {
+		if ( \MediaWiki\MediaWikiServices::getInstance()
+			->getPermissionManager()
+			->userCan( 'edit', $user, $title )
+		) {
 			return true;
 		}
 		return false;
