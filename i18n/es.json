@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"AVIADOR",
+			"Agusbou2015",
 			"Fitoschido",
 			"Macofe",
-			"AVIADOR",
-			"Ryo567",
-			"Agusbou2015"
+			"Ryo567"
 		]
 	},
 	"bs-saferedit-desc": "Proporciona advertencias si otros usuarios están editando la página",

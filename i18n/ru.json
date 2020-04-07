@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Movses",
 			"Okras",
-			"Striking Blue",
-			"Movses"
+			"Striking Blue"
 		]
 	},
 	"bs-saferedit-desc": "Выводит предупреждение, если другие участники редактируют страницу",
