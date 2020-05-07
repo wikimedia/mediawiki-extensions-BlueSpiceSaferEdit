@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"SPQRobin",
 			"Esketti",
+			"Mainframe98",
+			"SPQRobin",
 			"Siebrand",
-			"Sjoerddebruin",
-			"Mainframe98"
+			"Sjoerddebruin"
 		]
 	},
 	"bs-saferedit-desc": "Tussentijdse het opslaan van wiki bewerkingen",
