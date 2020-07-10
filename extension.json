@@ -85,7 +85,7 @@
 			"\\BlueSpice\\SaferEdit\\Hook\\BsAdapterAjaxPingResult\\HandleSaferEditIsSomeoneEditing::callback",
 			"\\BlueSpice\\SaferEdit\\Hook\\BsAdapterAjaxPingResult\\HandleSaferEditSave::callback"
 		],
-		"PageContentSaveComplete": "\\BlueSpice\\SaferEdit\\Hook\\PageContentSaveComplete\\ClearSaferEdit::callback",
+		"PageSaveComplete": "\\BlueSpice\\SaferEdit\\Hook\\PageSaveComplete\\ClearSaferEdit::callback",
 		"EditPage::showEditForm:initial": "\\BlueSpice\\SaferEdit\\Hook\\EditPage_showEditForm_initial\\SetEditSection::callback"
 	},
 	"load_composer_autoloader": true,
