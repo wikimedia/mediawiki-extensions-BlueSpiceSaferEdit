@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Stephan Muggli <muggli@hallowelt.biz>",
-			"Shirayuki",
-			"Robby",
 			"Fitoschido",
-			"Ата",
-			"Guycn2"
+			"Guycn2",
+			"Robby",
+			"Shirayuki",
+			"Stephan Muggli <muggli@hallowelt.biz>",
+			"Ата"
 		]
 	},
 	"bs-saferedit-desc": "Used in [{{canonicalurl:Special:WikiAdmin|mode=ExtensionInfo}} Special:WikiAdmin?mode=ExtensionInfo], description of pages visited extension",
