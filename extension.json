@@ -48,7 +48,7 @@
 		]
 	},
 	"AutoloadNamespaces": {
-		"BlueSpice\\SaferEdit\\" : "src/"
+		"BlueSpice\\SaferEdit\\": "src/"
 	},
 	"ResourceModules": {
 		"ext.bluespice.saferedit.init": {
