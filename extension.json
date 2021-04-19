@@ -17,12 +17,12 @@
 			"Extensions": {
 				"BlueSpiceSaferEdit": {
 					"className": "\\BlueSpice\\SaferEdit\\Extension",
-					"extPath": "/BlueSpiceSaferEdit",
-					"configDefinitions": {
-						"SaferEditInterval": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\Interval::getInstance",
-						"SaferEditShowNameOfEditingUser": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\ShowNameOfEditingUser::getInstance"
-					}
+					"extPath": "/BlueSpiceSaferEdit"
 				}
+			},
+			"ConfigDefinitionRegistry": {
+				"SaferEditInterval": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\Interval::getInstance",
+				"SaferEditShowNameOfEditingUser": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\ShowNameOfEditingUser::getInstance"
 			},
 			"AlertProviderRegistry": {
 				"bs-saferedit-warning": "\\BlueSpice\\SaferEdit\\AlertProvider\\EditWarning::factory"
