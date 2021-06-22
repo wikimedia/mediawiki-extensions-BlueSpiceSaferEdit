@@ -30,4 +30,11 @@ class ShowNameOfEditingUser extends BooleanSetting {
 	public function isRLConfigVar() {
 		return true;
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getHelpMessageKey() {
+		return 'bs-saferedit-pref-shownameofeditinguser-help';
+	}
 }
