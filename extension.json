@@ -86,7 +86,8 @@
 			"\\BlueSpice\\SaferEdit\\Hook\\BsAdapterAjaxPingResult\\HandleSaferEditSave::callback"
 		],
 		"PageContentSaveComplete": "\\BlueSpice\\SaferEdit\\Hook\\PageContentSaveComplete\\ClearSaferEdit::callback",
-		"EditPage::showEditForm:initial": "\\BlueSpice\\SaferEdit\\Hook\\EditPage_showEditForm_initial\\SetEditSection::callback"
+		"EditPage::showEditForm:initial": "\\BlueSpice\\SaferEdit\\Hook\\EditPage_showEditForm_initial\\SetEditSection::callback",
+		"MergeAccountFromTo": "\\BlueSpice\\SaferEdit\\Hook\\MergeAccountFromTo\\MergeSaferEditDBFields::callback"
 	},
 	"load_composer_autoloader": true,
 	"manifest_version": 2
