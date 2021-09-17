@@ -10,7 +10,7 @@ class Handler implements IPrivacyHandler {
 	/**
 	 * @inheritDoc
 	 */
-	public function __construct( \Database $db ) {
+	public function __construct( \IDatabase $db ) {
 		$this->db = $db;
 	}
 
