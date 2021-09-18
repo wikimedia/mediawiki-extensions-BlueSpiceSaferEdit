@@ -3,6 +3,7 @@
 namespace BlueSpice\SaferEdit\Privacy;
 
 use BlueSpice\Privacy\IPrivacyHandler;
+use Wikimedia\Rdbms\IDatabase;
 
 class Handler implements IPrivacyHandler {
 	protected $db;
@@ -10,7 +11,7 @@ class Handler implements IPrivacyHandler {
 	/**
 	 * @inheritDoc
 	 */
-	public function __construct( \IDatabase $db ) {
+	public function __construct( IDatabase $db ) {
 		$this->db = $db;
 	}
 
