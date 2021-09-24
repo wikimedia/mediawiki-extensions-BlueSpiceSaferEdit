@@ -30,4 +30,11 @@ class Interval extends IntSetting {
 	public function isRLConfigVar() {
 		return true;
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getHelpMessageKey() {
+		return 'bs-saferedit-pref-interval-help';
+	}
 }
