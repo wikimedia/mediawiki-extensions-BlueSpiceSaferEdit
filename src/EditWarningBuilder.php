@@ -3,6 +3,7 @@
 namespace BlueSpice\SaferEdit;
 
 use Config;
+use Message;
 use Title;
 use User;
 use Wikimedia\Rdbms\LoadBalancer;
@@ -35,9 +36,9 @@ class EditWarningBuilder {
 
 	/**
 	 *
-	 * @var string
+	 * @var array
 	 */
-	protected $intermediateEditUsername = '';
+	protected $intermediateEditUsernames = [];
 
 	/**
 	 *
@@ -70,21 +71,23 @@ class EditWarningBuilder {
 	}
 
 	protected function makeMessage() {
-		if ( empty( $this->intermediateEditUsername ) ) {
+		if ( empty( $this->intermediateEditUsernames ) ) {
 			return;
 		}
 
 		$showName = $this->config->get( 'SaferEditShowNameOfEditingUser' );
 
-		$message = wfMessage( 'bs-saferedit-someone-editing' );
+		$message = wfMessage( 'bs-saferedit-someone-editing' )->text();
 		if ( $showName ) {
-			$message = wfMessage(
-				'bs-saferedit-user-editing',
-				$this->intermediateEditUsername
-			);
+			$message = wfMessage( 'bs-saferedit-user-editing' )
+				->params(
+					Message::listParam( $this->intermediateEditUsernames, 'text' ),
+					count( $this->intermediateEditUsernames )
+				)
+				->parse();
 		}
 
-		$this->message = $message->text();
+		$this->message = $message;
 	}
 
 	protected $intermediateEdits = [];
@@ -121,8 +124,7 @@ class EditWarningBuilder {
 				continue;
 			}
 
-			$this->intermediateEditUsername = $row->se_user_name;
-			break;
+			$this->intermediateEditUsernames[] = $row->se_user_name;
 		}
 	}
 
