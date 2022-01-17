@@ -6,11 +6,12 @@
 			"ArenaL5",
 			"Fitoschido",
 			"Macofe",
-			"Ryo567"
+			"Ryo567",
+			"MarcoAurelio"
 		]
 	},
 	"bs-saferedit-desc": "Proporciona advertencias si otros usuarios están editando la página",
-	"bs-saferedit-user-editing": "$1 está {{GENDER:$1|editando}} la página",
+	"bs-saferedit-user-editing": "$1 {{PLURAL:$2|está|están}} {{GENDER:$1|editando}} la página",
 	"bs-saferedit-someone-editing": "La página se está editando",
 	"bs-saferedit-pref-interval": "Intervalo en el cual buscar ediciones concurrentes:",
 	"bs-saferedit-pref-shownameofeditinguser": "Mostrar el nombre del editor actual"
