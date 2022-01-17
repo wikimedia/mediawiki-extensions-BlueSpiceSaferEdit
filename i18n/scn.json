@@ -4,5 +4,5 @@
 			"Ajeje Brazorf"
 		]
 	},
-	"bs-saferedit-user-editing": "$1 sta {{GENDER:$1|canciannu}} la pàggina"
+	"bs-saferedit-user-editing": "$1 {{PLURAL:$2|sta|stannu}} {{GENDER:$1|canciannu}} la pàggina"
 }
