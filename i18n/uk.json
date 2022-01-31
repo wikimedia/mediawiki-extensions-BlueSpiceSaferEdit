@@ -7,7 +7,7 @@
 		]
 	},
 	"bs-saferedit-desc": "Видає попередження, якщо інші користувачі редагують сторінку",
-	"bs-saferedit-user-editing": "$1 {{GENDER:$1|редагує}} сторінку",
+	"bs-saferedit-user-editing": "$1 {{PLURAL:$2|редагує|редагують}} сторінку",
 	"bs-saferedit-someone-editing": "Сторінка редагується",
 	"bs-saferedit-pref-interval": "Інтервал пошуку паралельних редагувань:",
 	"bs-saferedit-pref-shownameofeditinguser": "Показати ім'я поточного редактора",
