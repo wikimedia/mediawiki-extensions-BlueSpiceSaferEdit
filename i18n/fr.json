@@ -9,7 +9,7 @@
 		]
 	},
 	"bs-saferedit-desc": "Fournit des avertissements quand d’autres utilisateurs sont en train de modifier la même page",
-	"bs-saferedit-user-editing": "$1 {{PLURAL:$2|est|sont}} en train de {{GENDER:$1|modifier}} la page",
+	"bs-saferedit-user-editing": "$1{{GENDER:$1|}} {{PLURAL:$2|est|sont}} en train de modifier la page",
 	"bs-saferedit-someone-editing": "La page est en cours de modification",
 	"bs-saferedit-pref-interval": "Intervalle de vérification des modifications concurrentes :",
 	"bs-saferedit-pref-shownameofeditinguser": "Afficher le nom de l’éditeur actuel",
