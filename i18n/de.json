@@ -7,7 +7,7 @@
 		]
 	},
 	"bs-saferedit-desc": "Stellt Warnungen bereit, falls andere Benutzer die Seite bearbeiten.",
-	"bs-saferedit-user-editing": "$1 bearbeitet die Seite gerade",
+	"bs-saferedit-user-editing": "$1 {{PLURAL:$2|bearbeitet|bearbeiten}} die Seite gerade",
 	"bs-saferedit-someone-editing": "Die Seite wird gerade bearbeitet",
 	"bs-saferedit-pref-interval": "Intervall zur Suche nach konkurrierenden Bearbeitungen:",
 	"bs-saferedit-pref-shownameofeditinguser": "Name des aktuellen Bearbeiters anzeigen",
