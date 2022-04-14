@@ -1,4 +1,5 @@
 {
+	"name": "BlueSpiceSaferEdit",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"
