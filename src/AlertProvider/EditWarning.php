@@ -12,11 +12,16 @@ class EditWarning extends AlertProviderBase {
 	 * @inheritDoc
 	 */
 	public function getHTML() {
+		$currentTitle = $this->skin->getTitle();
+		if ( $currentTitle === null ) {
+			return '';
+		}
+
 		$editWarningBuilder = new EditWarningBuilder(
 			$this->loadBalancer,
 			$this->getConfig(),
 			$this->getUser(),
-			$this->skin->getTitle()
+			$currentTitle
 		);
 
 		return $editWarningBuilder->getMessage();
