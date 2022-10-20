@@ -10,5 +10,6 @@
 	"bs-saferedit-user-editing": "$1 {{PLURAL:$2|{{GENDER:$1|עורך|עורכת}}|עורכים}} את הדף",
 	"bs-saferedit-someone-editing": "הדף נערך כרגע",
 	"bs-saferedit-pref-interval": "הפרש לחיפוש בעריכות בו־זמניות:",
-	"bs-saferedit-pref-shownameofeditinguser": "הצגת שם העורך הנוכחי"
+	"bs-saferedit-pref-shownameofeditinguser": "הצגת שם העורך הנוכחי",
+	"bs-saferedit-pref-interval-help": "הגדרת הזמן בשניות לבדיקה אם אדם אחר עורך את הדף."
 }
