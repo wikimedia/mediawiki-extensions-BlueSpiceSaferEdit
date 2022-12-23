@@ -4,6 +4,11 @@ use BlueSpice\ExtensionAttributeBasedRegistry;
 use BlueSpice\SaferEdit\SaferEditManager;
 use MediaWiki\MediaWikiServices;
 
+// PHP unit does not understand code coverage for this file
+// as the @covers annotation cannot cover a specific file
+// This is fully tested in ServiceWiringTest.php
+// @codeCoverageIgnoreStart
+
 return [
 	'BSSaferEditManager' => static function ( MediaWikiServices $services ) {
 		$db = $services->getDBLoadBalancer()->getConnection( DB_PRIMARY );
@@ -12,3 +17,5 @@ return [
 		return new SaferEditManager( $db, $context, $registry );
 	},
 ];
+
+// @codeCoverageIgnoreEnd
