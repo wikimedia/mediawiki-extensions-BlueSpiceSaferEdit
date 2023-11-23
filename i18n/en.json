@@ -10,5 +10,5 @@
 	"bs-saferedit-pref-interval": "Interval for lookup for concurrent editings:",
 	"bs-saferedit-pref-shownameofeditinguser": "Show name of current editor",
 	"bs-saferedit-pref-interval-help": "Sets the time in seconds for checking if another person is editing the page.",
-	"bs-saferedit-pref-shownameofeditinguser-help": "Shows the  users who are currently editing the page as a hint on top of the page."
+	"bs-saferedit-pref-shownameofeditinguser-help": "Shows the users who are currently editing the page as a hint on top of the page."
 }

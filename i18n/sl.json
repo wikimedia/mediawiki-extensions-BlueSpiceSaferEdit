@@ -9,5 +9,6 @@
 	"bs-saferedit-someone-editing": "Stran se ureja",
 	"bs-saferedit-pref-interval": "Interval za iskanje sočasnih urejanj:",
 	"bs-saferedit-pref-shownameofeditinguser": "Pokaži ime trenutnega urejevalca",
-	"bs-saferedit-pref-interval-help": "Nastavite čas v sekundah za preverjanje, ali ureja stran druga oseba."
+	"bs-saferedit-pref-interval-help": "Nastavite čas v sekundah za preverjanje, ali ureja stran druga oseba.",
+	"bs-saferedit-pref-shownameofeditinguser-help": "Prikaže uporabnike, ki trenutno urejajo stran, kot namig na vrhu strani."
 }
