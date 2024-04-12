@@ -29,7 +29,8 @@ class StandardEdit extends Base {
 			return false;
 		}
 
-		if ( $this->context->getTitle()->isContentPage() ) {
+		$title = $this->context->getTitle();
+		if ( $title && $title->isContentPage() ) {
 			$result = true;
 		}
 		return true;
