@@ -6,6 +6,8 @@ use BlueSpice\Privacy\IPrivacyHandler;
 use Wikimedia\Rdbms\IDatabase;
 
 class Handler implements IPrivacyHandler {
+
+	/** @var IDatabase */
 	protected $db;
 
 	/**
