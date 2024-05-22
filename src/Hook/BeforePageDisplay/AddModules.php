@@ -26,12 +26,18 @@ class AddModules extends BeforePageDisplay {
 		return true;
 	}
 
+	/**
+	 * @return bool
+	 */
 	private function isEditMode() {
 		$result = false;
 		$this->seManager->askEnvironmentalCheckers( 'isEditMode', $result );
 		return $result;
 	}
 
+	/**
+	 * @return bool
+	 */
 	private function shouldShowWarning() {
 		$result = false;
 		$this->seManager->askEnvironmentalCheckers( 'shouldShowWarning', $result );

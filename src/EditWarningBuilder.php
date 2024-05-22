@@ -90,6 +90,7 @@ class EditWarningBuilder {
 		$this->message = $message;
 	}
 
+	/** @var array */
 	protected $intermediateEdits = [];
 
 	protected function loadFromDB() {
