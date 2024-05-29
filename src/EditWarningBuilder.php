@@ -3,6 +3,7 @@
 namespace BlueSpice\SaferEdit;
 
 use Config;
+use MediaWiki\MediaWikiServices;
 use Message;
 use Title;
 use User;
@@ -65,29 +66,37 @@ class EditWarningBuilder {
 	public function getMessage() {
 		$this->loadFromDB();
 		$this->findIntermediateEdit();
-		$this->makeMessage();
+		$this->message = $this->makeMessage();
 
 		return $this->message;
 	}
 
-	protected function makeMessage() {
+	/**
+	 * @return string
+	 */
+	protected function makeMessage(): string {
 		if ( empty( $this->intermediateEditUsernames ) ) {
-			return;
+			return '';
 		}
 
 		$showName = $this->config->get( 'SaferEditShowNameOfEditingUser' );
-
-		$message = wfMessage( 'bs-saferedit-someone-editing' )->text();
-		if ( $showName ) {
-			$message = wfMessage( 'bs-saferedit-user-editing' )
-				->params(
-					Message::listParam( $this->intermediateEditUsernames, 'text' ),
-					count( $this->intermediateEditUsernames )
-				)
-				->parse();
+		if ( !$showName ) {
+			return wfMessage( 'bs-saferedit-someone-editing' )->text();
 		}
 
-		$this->message = $message;
+		$message = wfMessage( 'bs-saferedit-user-editing' )
+			->params(
+				Message::listParam( $this->intermediateEditUsernames, 'text' ),
+				count( $this->intermediateEditUsernames )
+			)
+			->parse();
+
+		MediaWikiServices::getInstance()->getHookContainer()->run(
+			'BSSaferEditMessage',
+			[ $this->title, &$message ]
+		);
+
+		return $message;
 	}
 
 	/** @var array */
