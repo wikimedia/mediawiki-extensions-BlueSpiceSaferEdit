@@ -47,6 +47,9 @@ class EditWarningBuilder {
 	 */
 	protected $message = '';
 
+	/** @var MediaWikiServices */
+	protected $services;
+
 	/**
 	 * @param LoadBalancer $loadBalancer
 	 * @param Config $config
@@ -58,6 +61,7 @@ class EditWarningBuilder {
 		$this->config = $config;
 		$this->user = $user;
 		$this->title = $title;
+		$this->services = MediaWikiServices::getInstance();
 	}
 
 	/**
@@ -91,7 +95,7 @@ class EditWarningBuilder {
 			)
 			->parse();
 
-		MediaWikiServices::getInstance()->getHookContainer()->run(
+		$this->services->getHookContainer()->run(
 			'BSSaferEditMessage',
 			[ $this->title, &$message ]
 		);
@@ -124,6 +128,7 @@ class EditWarningBuilder {
 		$interval = $this->getInterval();
 		$thresholdTS = wfTimestamp( TS_MW, time() - $interval );
 		$currentUserName = $this->user->getName();
+		$userFactory = $this->services->getUserFactory();
 
 		foreach ( $this->intermediateEdits as $row ) {
 			if ( $row->se_user_name === $currentUserName ) {
@@ -134,7 +139,8 @@ class EditWarningBuilder {
 				continue;
 			}
 
-			$this->intermediateEditUsernames[] = $row->se_user_name;
+			$user = $userFactory->newFromName( $row->se_user_name );
+			$this->intermediateEditUsernames[] = $user->getRealName() ?: $row->se_user_name;
 		}
 	}
 
