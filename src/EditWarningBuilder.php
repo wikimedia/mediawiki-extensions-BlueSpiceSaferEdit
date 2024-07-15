@@ -139,8 +139,12 @@ class EditWarningBuilder {
 				continue;
 			}
 
-			$user = $userFactory->newFromName( $row->se_user_name );
-			$this->intermediateEditUsernames[] = $user->getRealName() ?: $row->se_user_name;
+			$userName = $row->se_user_name;
+			$user = $userFactory->newFromName( $userName );
+			if ( $user && $user->getRealName() ) {
+				$userName = $user->getRealName();
+			}
+			$this->intermediateEditUsernames[] = $userName;
 		}
 	}
 
