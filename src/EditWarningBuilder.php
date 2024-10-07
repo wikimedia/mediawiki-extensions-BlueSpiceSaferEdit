@@ -72,6 +72,11 @@ class EditWarningBuilder {
 		$this->findIntermediateEdit();
 		$this->message = $this->makeMessage();
 
+		$this->services->getHookContainer()->run(
+			'BSSaferEditMessage',
+			[ $this->title, &$this->message ]
+		);
+
 		return $this->message;
 	}
 
@@ -94,11 +99,6 @@ class EditWarningBuilder {
 				count( $this->intermediateEditUsernames )
 			)
 			->parse();
-
-		$this->services->getHookContainer()->run(
-			'BSSaferEditMessage',
-			[ $this->title, &$message ]
-		);
 
 		return $message;
 	}
