@@ -11,6 +11,7 @@ OO.initClass( bs.saferEdit.Warning );
 
 bs.saferEdit.Warning.prototype.someoneIsEditingListener = function( result, listener ) {
 	if( result.success !== true ) {
+		this.registerListener();
 		return;
 	}
 
