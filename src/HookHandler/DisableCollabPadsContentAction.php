@@ -6,7 +6,7 @@ use BlueSpice\Discovery\ITemplateDataProvider;
 use Config;
 use ConfigFactory;
 use MediaWiki\Extension\CollabPads\Hook\CollabPadsAfterAddContentActionHook;
-use Title;
+use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\LoadBalancer;
 
 class DisableCollabPadsContentAction implements CollabPadsAfterAddContentActionHook {

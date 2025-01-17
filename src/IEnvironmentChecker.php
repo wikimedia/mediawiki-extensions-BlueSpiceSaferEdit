@@ -3,7 +3,7 @@
 namespace BlueSpice\SaferEdit;
 
 use IContextSource;
-use Title;
+use MediaWiki\Title\Title;
 
 interface IEnvironmentChecker {
 	/**

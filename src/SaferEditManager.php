@@ -4,8 +4,8 @@ namespace BlueSpice\SaferEdit;
 
 use BlueSpice\ExtensionAttributeBasedRegistry;
 use IContextSource;
+use MediaWiki\Title\Title;
 use Status;
-use Title;
 use User;
 use Wikimedia\Rdbms\IDatabase;
 
