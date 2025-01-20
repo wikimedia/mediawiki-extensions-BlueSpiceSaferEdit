@@ -5,8 +5,8 @@ namespace BlueSpice\SaferEdit;
 use BlueSpice\ExtensionAttributeBasedRegistry;
 use IContextSource;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use Status;
-use User;
 use Wikimedia\Rdbms\IDatabase;
 
 class SaferEditManager {

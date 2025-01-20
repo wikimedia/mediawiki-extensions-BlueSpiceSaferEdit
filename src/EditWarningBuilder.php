@@ -5,8 +5,8 @@ namespace BlueSpice\SaferEdit;
 use Config;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use Message;
-use User;
 use Wikimedia\Rdbms\LoadBalancer;
 
 class EditWarningBuilder {
