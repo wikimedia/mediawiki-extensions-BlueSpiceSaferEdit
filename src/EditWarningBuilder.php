@@ -2,7 +2,7 @@
 
 namespace BlueSpice\SaferEdit;
 
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
