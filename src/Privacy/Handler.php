@@ -3,6 +3,7 @@
 namespace BlueSpice\SaferEdit\Privacy;
 
 use BlueSpice\Privacy\IPrivacyHandler;
+use MediaWiki\Status\Status;
 use MediaWiki\User\User;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -28,7 +29,7 @@ class Handler implements IPrivacyHandler {
 			[ 'se_user_name' => $oldUsername ]
 		);
 
-		return \Status::newGood();
+		return Status::newGood();
 	}
 
 	/**
@@ -43,6 +44,6 @@ class Handler implements IPrivacyHandler {
 	 */
 	public function exportData( array $types, $format, User $user ) {
 		// What would the information here be?
-		return \Status::newGood( [] );
+		return Status::newGood( [] );
 	}
 }
