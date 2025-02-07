@@ -3,8 +3,8 @@
 namespace BlueSpice\SaferEdit\HookHandler;
 
 use BlueSpice\Discovery\ITemplateDataProvider;
-use ConfigFactory;
 use MediaWiki\Config\Config;
+use MediaWiki\Config\ConfigFactory;
 use MediaWiki\Extension\CollabPads\Hook\CollabPadsAfterAddContentActionHook;
 use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\LoadBalancer;
