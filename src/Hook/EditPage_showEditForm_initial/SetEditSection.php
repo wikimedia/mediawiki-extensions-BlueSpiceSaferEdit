@@ -2,7 +2,7 @@
 
 namespace BlueSpice\SaferEdit\Hook\EditPage_showEditForm_initial;
 
-use EditPage;
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\Output\OutputPage;
 
 class SetEditSection {
