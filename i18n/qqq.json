@@ -15,5 +15,9 @@
 	"bs-saferedit-pref-interval": "Option in [{{canonicalurl:Special:WikiAdmin|mode=Preferences}} Special:WikiAdmin?mode=Preferences], label for recovery version interval in seconds",
 	"bs-saferedit-pref-shownameofeditinguser": "Option in [{{canonicalurl:Special:WikiAdmin|mode=Preferences}} Special:WikiAdmin?mode=Preferences], checkbox label for show name of current editor",
 	"bs-saferedit-pref-interval-help": "Description for config variable \"SaferEditInterval\"",
-	"bs-saferedit-pref-shownameofeditinguser-help": "Description for config variable \"SaferEditShowNameOfEditingUser\""
+	"bs-saferedit-pref-shownameofeditinguser-help": "Description for config variable \"SaferEditShowNameOfEditingUser\"",
+	"bs-saferedit-pref-edit-interval": "Label for config variable \"SaferEditInterval\"",
+	"bs-saferedit-pref-edit-interval-help": "Description for config variable \"SaferEditInterval\"",
+	"bs-saferedit-pref-show-editinguser": "Label for config variable \"SaferEditShowNameOfEditingUser\"",
+	"bs-saferedit-pref-show-editinguser-help": "Description for config variable \"SaferEditShowNameOfEditingUser\""
 }
