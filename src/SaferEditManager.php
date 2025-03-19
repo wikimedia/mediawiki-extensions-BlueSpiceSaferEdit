@@ -85,7 +85,11 @@ class SaferEditManager {
 			}
 		} else {
 			$title->invalidateCache();
-			$insertOk = $this->db->insert( $table, $conditions + $fields );
+			$insertOk = $this->db->insert(
+				$table,
+				$conditions + $fields,
+				__METHOD__
+			);
 			if ( $insertOk ) {
 				return Status::newGood();
 			}
