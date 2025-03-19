@@ -78,7 +78,8 @@ class SaferEditManager {
 			$updateOk = $this->db->update(
 				$table,
 				$fields,
-				[ "se_id" => $row->se_id ]
+				[ "se_id" => $row->se_id ],
+				__METHOD__
 			);
 			if ( $updateOk ) {
 				return Status::newGood();

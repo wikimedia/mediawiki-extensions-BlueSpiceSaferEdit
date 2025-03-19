@@ -26,7 +26,8 @@ class Handler implements IPrivacyHandler {
 		$this->db->update(
 			'bs_saferedit',
 			[ 'se_user_name' => $newUsername ],
-			[ 'se_user_name' => $oldUsername ]
+			[ 'se_user_name' => $oldUsername ],
+			__METHOD__
 		);
 
 		return Status::newGood();
