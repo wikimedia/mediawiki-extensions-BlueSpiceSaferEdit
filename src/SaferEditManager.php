@@ -113,7 +113,8 @@ class SaferEditManager {
 				"se_user_name" => $user->getName(),
 				"se_page_title" => $title->getDBkey(),
 				"se_page_namespace" => $title->getNamespace(),
-			]
+			],
+			__METHOD__
 		);
 
 		if ( $deleteOk ) {
