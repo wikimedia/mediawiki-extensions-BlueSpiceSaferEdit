@@ -17,6 +17,7 @@ use MediaWikiIntegrationTestCase;
  * @group BlueSpiceSaferEdit
  * @group BlueSpiceExtensions
  * @group BlueSpice
+ * @group Database
  */
 class ServiceWiringTest extends MediaWikiIntegrationTestCase {
 	/**
