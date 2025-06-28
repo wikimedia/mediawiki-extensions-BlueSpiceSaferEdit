@@ -51,7 +51,7 @@
 		"BlueSpice\\SaferEdit\\": "src/"
 	},
 	"TestAutoloadNamespaces": {
-		"BlueSpice\\SaferEdit\\Tests\\": "tests/phpunit"
+		"BlueSpice\\SaferEdit\\Tests\\": "tests/phpunit/"
 	},
 	"ResourceModules": {
 		"ext.bluespice.saferedit.init": {
