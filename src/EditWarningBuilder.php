@@ -164,11 +164,20 @@ class EditWarningBuilder {
 
 	protected function findIntermediateEdit() {
 		$userFactory = $this->services->getUserFactory();
-
+		$hasAnon = false;
 		foreach ( $this->intermediateEdits as $row ) {
 			$displayName = $row->se_user_name;
 			$user = $userFactory->newFromName( $displayName );
-			if ( $user && $user->getRealName() ) {
+			if ( !$user ) {
+				if ( $hasAnon ) {
+					// No sense in showing multiple anonymous users
+					continue;
+				}
+				$hasAnon = true;
+				$user = $userFactory->newAnonymous();
+				$displayName = Message::newFromKey( 'bs-saferedit-anonymous-editor' )->text();
+			}
+			if ( $user->isRegistered() && $user->getRealName() ) {
 				$displayName = $user->getRealName();
 			}
 			$this->intermediateEditUsernames[$user->getName()] = $displayName;
