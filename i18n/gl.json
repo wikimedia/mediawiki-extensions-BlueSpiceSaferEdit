@@ -10,5 +10,6 @@
 	"bs-saferedit-user-editing": "$1 {{PLURAL:$2|está|están}} {{GENDER:$1|editando}} a páxina",
 	"bs-saferedit-someone-editing": "A páxina está a ser editada",
 	"bs-saferedit-pref-show-editinguser": "Mostrar o editor actual",
-	"bs-saferedit-pref-show-editinguser-help": "Engade o nome do usuario que está a editar a páxina actualmente na parte superior da páxina"
+	"bs-saferedit-pref-show-editinguser-help": "Engade o nome do usuario que está a editar a páxina actualmente na parte superior da páxina",
+	"bs-saferedit-anonymous-editor": "Usuario anónimo"
 }
