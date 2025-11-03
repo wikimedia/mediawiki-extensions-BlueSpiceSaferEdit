@@ -14,5 +14,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "Mostrar nome do editor atual",
 	"bs-saferedit-pref-interval-help": "Define a duração em segundos para verificar se outra pessoa está a editar a página.",
 	"bs-saferedit-pref-shownameofeditinguser-help": "Mostra os utilizadores que estão neste momento a editar a página, na forma de dica ao topo da página.",
-	"bs-saferedit-anonymous-editor": "Utilizador anónimo"
+	"bs-saferedit-anonymous-editor": "Utilizador anónimo",
+	"bs-saferedit-pref-show-editinguser": "Mostrar editor atual"
 }
