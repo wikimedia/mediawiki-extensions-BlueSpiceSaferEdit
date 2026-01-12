@@ -16,7 +16,7 @@
 	"require": {
 		"composer/installers": "~1.0|~2",
 		"mwstake/mediawiki-component-wire": "~1",
-		"mwstake/mediawiki-component-runjobstrigger": "~3"
+		"mwstake/mediawiki-component-wikicron": "~3"
 	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "45.0.0",
