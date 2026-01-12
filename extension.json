@@ -52,6 +52,9 @@
 	"TestAutoloadNamespaces": {
 		"BlueSpice\\SaferEdit\\Tests\\": "tests/phpunit"
 	},
+	"ExtensionFunctions": [
+		"\\BlueSpice\\SaferEdit\\DeleteOldEntriesCron::register"
+	],
 	"ResourceModules": {
 		"ext.bluespice.saferedit.init": {
 			"scripts": [
@@ -89,8 +92,7 @@
 		"PageSaveComplete": "\\BlueSpice\\SaferEdit\\Hook\\PageSaveComplete\\ClearSaferEdit::callback",
 		"EditPage::showEditForm:initial": "\\BlueSpice\\SaferEdit\\Hook\\EditPage_showEditForm_initial\\SetEditSection::callback",
 		"MergeAccountFromTo": "\\BlueSpice\\SaferEdit\\Hook\\MergeAccountFromTo\\MergeSaferEditDBFields::callback",
-		"CollabPadsAfterAddContentAction": "disableCollabPadsContentAction",
-		"MWStakeRunJobsTriggerRegisterHandlers": "BlueSpice\\SaferEdit\\Hook\\AddBackgroundProcess::callback"
+		"CollabPadsAfterAddContentAction": "disableCollabPadsContentAction"
 	},
 	"HookHandlers": {
 		"disableCollabPadsContentAction": {
