@@ -10,7 +10,8 @@
 	},
 	"globals": {
 		"bs": "readonly",
-		"BSPing": "readonly"
+		"BSPing": "readonly",
+		"ve": "readonly"
 	},
 	"rules": {
 		"max-len": "off",

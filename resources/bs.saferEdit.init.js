@@ -55,7 +55,12 @@ if ( mw.config.get( 'bsSaferEditIsEditMode' ) ) {
 }
 
 mw.hook( 've.activationComplete' ).add( () => {
-	emitStartEdit();
+	setTimeout( () => {
+		if ( !ve.init.target.surface.isReadOnly() ) {
+			emitStartEdit();
+		}
+	}, 100 );
+
 } );
 
 mw.hook( 've.deactivationComplete' ).add( () => {
