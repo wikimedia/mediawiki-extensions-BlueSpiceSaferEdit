@@ -3,6 +3,7 @@
 		"authors": [
 			"Hwboehm",
 			"Metalhead64",
+			"Mschlindwein",
 			"Stephan Muggli <muggli@hallowelt.biz>"
 		]
 	},
@@ -12,5 +13,8 @@
 	"bs-saferedit-pref-interval": "Intervall zur Suche nach konkurrierenden Bearbeitungen:",
 	"bs-saferedit-pref-shownameofeditinguser": "Name des aktuellen Bearbeiters anzeigen",
 	"bs-saferedit-pref-interval-help": "Zeit in Sekunden, in der die gleichzeitige Seitenbearbeitung überprüft wird.",
-	"bs-saferedit-pref-shownameofeditinguser-help": "Zeigt die aktuellen Bearbeiter als Hinweis am Beginn der Seite an."
+	"bs-saferedit-pref-shownameofeditinguser-help": "Zeigt die aktuellen Bearbeiter als Hinweis am Beginn der Seite an.",
+	"bs-saferedit-pref-show-editinguser": "Aktuellen Bearbeiter anzeigen",
+	"bs-saferedit-pref-show-editinguser-help": "Fügt den Namen des Benutzers, der die Seite gerade bearbeitet, am Seitenanfang ein",
+	"bs-saferedit-anonymous-editor": "Anonymer Benutzer"
 }

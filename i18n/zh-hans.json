@@ -3,6 +3,7 @@
 		"authors": [
 			"GuoPC",
 			"Liuxinyu970226",
+			"Peterxy12",
 			"佛壁灯"
 		]
 	},
@@ -10,5 +11,8 @@
 	"bs-saferedit-user-editing": "$1 {{PLURAL:$2|正在}}{{GENDER:$1|编辑}}页面",
 	"bs-saferedit-someone-editing": "此页面正在编辑",
 	"bs-saferedit-pref-interval": "并发编辑的查找间隔：",
-	"bs-saferedit-pref-shownameofeditinguser": "显示当前编辑者的名字"
+	"bs-saferedit-pref-shownameofeditinguser": "显示当前编辑者的名字",
+	"bs-saferedit-pref-show-editinguser": "显示目前编辑者",
+	"bs-saferedit-pref-show-editinguser-help": "在页面顶部新增目前做出编辑的用户名称。",
+	"bs-saferedit-anonymous-editor": "匿名用户"
 }

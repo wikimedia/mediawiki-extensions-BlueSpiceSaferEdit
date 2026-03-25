@@ -10,5 +10,8 @@
 	"bs-saferedit-pref-interval": "Intervall for når det skal sjekkes for samtidige redigeringer:",
 	"bs-saferedit-pref-shownameofeditinguser": "Vis navnet på aktuel bidragsyter",
 	"bs-saferedit-pref-interval-help": "Setter tiden i sekunder for å sjekke om en annen person redigerer siden.",
-	"bs-saferedit-pref-shownameofeditinguser-help": "Viser brukerne som redigerer siden som et hint på toppen av siden."
+	"bs-saferedit-pref-shownameofeditinguser-help": "Viser brukerne som redigerer siden som et hint på toppen av siden.",
+	"bs-saferedit-pref-show-editinguser": "Vis den gjeldende bidragsyteren",
+	"bs-saferedit-pref-show-editinguser-help": "Legger til navnet på brukeren som redigerer siden i toppen av siden",
+	"bs-saferedit-anonymous-editor": "Anonym bruker"
 }
