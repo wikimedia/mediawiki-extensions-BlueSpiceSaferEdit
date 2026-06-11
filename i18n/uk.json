@@ -4,6 +4,7 @@
 			"Andriykopanytsia",
 			"DDPAT",
 			"Ice bulldog",
+			"Movses",
 			"Vlad5250",
 			"Ата"
 		]
@@ -15,5 +16,6 @@
 	"bs-saferedit-pref-shownameofeditinguser": "Показати ім'я поточного редактора",
 	"bs-saferedit-pref-interval-help": "Встановлює час у секундах для перевірки того, чи редагує сторінку інша особа.",
 	"bs-saferedit-pref-shownameofeditinguser-help": "Показує користувачам, які наразі редагують сторінку, як підказку у верхній частині сторінки.",
-	"bs-saferedit-anonymous-editor": "Анонімний користувач"
+	"bs-saferedit-anonymous-editor": "Анонімний користувач",
+	"bs-saferedit-pref-show-editinguser": "Показати поточного редактора"
 }
