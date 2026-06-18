@@ -21,6 +21,7 @@
 				}
 			},
 			"ConfigDefinitionRegistry": {
+				"SaferEditInterval": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\Interval::getInstance",
 				"SaferEditShowNameOfEditingUser": "\\BlueSpice\\SaferEdit\\ConfigDefinition\\ShowNameOfEditingUser::getInstance"
 			},
 			"AlertProviderRegistry": {
