@@ -95,14 +95,14 @@ if ( mw.config.get( 'bsSaferEditDisplayWarning' ) ) {
 				}
 				const displayNames = users
 					.map( ( user ) => payload.data.userDisplayNames[ user ] || user );
-				msg = mw.msg( // eslint-disable-line mediawiki/msg-doc
+				msg = mw.msg(
 					payload.data.message,
 					displayNames.join( ', ' ),
 					displayNames.length
 				);
 			} else if ( payload.data.message ) {
 				const params = payload.data.params || [];
-				msg = mw.msg( payload.data.message, ...params ); // eslint-disable-line mediawiki/msg-doc
+				msg = mw.msg( payload.data.message, ...params );
 			}
 
 			if ( msg ) {
