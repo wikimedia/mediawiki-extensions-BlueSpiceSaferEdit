@@ -42,7 +42,7 @@ class DisableCollabPadsContentAction implements CollabPadsAfterAddContentActionH
 	 * @return bool
 	 */
 	protected function hasRecentSaferEditSession( $title ): bool {
-		$interval = $this->getInterval();
+		$interval = $this->bsgConfig->get( 'SaferEditInterval' );
 		$thresholdTS = wfTimestamp( TS_MW, time() - $interval );
 
 		$dbr = $this->loadBalancer->getConnection( DB_REPLICA );
@@ -58,15 +58,5 @@ class DisableCollabPadsContentAction implements CollabPadsAfterAddContentActionH
 			->fetchRowCount();
 
 		return $res > 0;
-	}
-
-	/**
-	 * @return int
-	 */
-	protected function getInterval(): int {
-		$saferEditInterval = $this->bsgConfig->get( 'SaferEditInterval' );
-		$pingInterval = $this->bsgConfig->get( 'PingInterval' );
-
-		return $saferEditInterval + $pingInterval;
 	}
 }
