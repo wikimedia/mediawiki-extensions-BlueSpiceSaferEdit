@@ -15,7 +15,7 @@ use Wikimedia\Rdbms\ILoadBalancer;
 class KeepAliveWatcher implements LoggerAwareInterface {
 
 	/** @var int After this many seconds of inactivity, assume user is no longer editing */
-	public const SAFER_EDIT_KEEP_ALIVE_INTERVAL = 300;
+	public const SAFER_EDIT_KEEP_ALIVE_INTERVAL = 3599;
 
 	/** @var \Psr\Log\LoggerInterface */
 	private $logger;

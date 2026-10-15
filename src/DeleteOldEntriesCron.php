@@ -20,8 +20,8 @@ class DeleteOldEntriesCron {
 		/** @var WikiCronManager $cronManager */
 		$cronManager = MediaWikiServices::getInstance()->getService( 'MWStake.WikiCronManager' );
 
-		// Interval: Every 5 Minutes. See KeepAliveWatcher::DEFAULT_EXPIRY_TIME
-		$cronManager->registerCron( 'bs-saferedit-delete-old-entries', '*/5 * * * *', new ManagedProcess( [
+		// Interval: Hourly. See KeepAliveWatcher::DEFAULT_EXPIRY_TIME
+		$cronManager->registerCron( 'bs-saferedit-delete-old-entries', '0 * * * *', new ManagedProcess( [
 			'delete-old-entries' => [
 				'class' => DeleteOldEntries::class,
 				'services' => [
