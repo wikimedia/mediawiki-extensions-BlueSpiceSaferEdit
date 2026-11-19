@@ -146,6 +146,26 @@ class SaferEditManager {
 	}
 
 	/**
+	 * @param Title $title
+	 * @return bool
+	 */
+	public function isPageBeingEdited( Title $title ): bool {
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$row = $dbr->selectRow(
+			'bs_saferedit',
+			[ 'se_id' ],
+			[
+				'se_page_title' => $title->getDBkey(),
+				'se_page_namespace' => $title->getNamespace(),
+			],
+			__METHOD__,
+			[ 'LIMIT' => 1 ]
+		);
+
+		return (bool)$row;
+	}
+
+	/**
 	 * @param string $func Function to be executed
 	 * @param mixed &$result
 	 */
